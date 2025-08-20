@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import {ReactNode} from "react";
-import {Grid} from "@mui/system";
+import {Grid} from "@mui/material/Grid";
 
 interface SubHeaderProps {
 	title?: ReactNode;
