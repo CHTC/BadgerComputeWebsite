@@ -49,6 +49,12 @@ jobs:
 
       - name: Build with Next.js
         run: |
+          # Install pnpm if not already installed
+          if ! command -v pnpm &> /dev/null
+          then
+            npm install -g pnpm
+          fi
+        
           pnpm run build
 
       - name: Upload artifact
