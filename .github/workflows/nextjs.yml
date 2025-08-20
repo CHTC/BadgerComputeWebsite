@@ -56,7 +56,10 @@ jobs:
           echo "module.exports = { basePath: '/nextjs' };" > next.config.js
 
       - name: Build with Next.js
-        run: pnpm run build
+        run: |
+          pnpm run build
+          find ./out | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
+          printenv
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
