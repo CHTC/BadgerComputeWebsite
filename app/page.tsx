@@ -66,10 +66,10 @@ export default function Home() {
           <Fade in={showOverlay} timeout={1000}>
             <Box>
               <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
-                Welcome to BadgerHub
+                Welcome to Badger Compute
               </Typography>
               <Typography variant="h5" gutterBottom>
-                The collaborative platform for UW–Madison
+								Engage Your Research: Interactive Computing with BadgerHub
               </Typography>
               <Button
                 variant="contained"
