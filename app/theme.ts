@@ -2,8 +2,7 @@
 
 import {createTheme, responsiveFontSizes} from "@mui/material";
 import {Red_Hat_Display, Red_Hat_Text} from "next/font/google";
-
-import LinkBehaviour from "@/components/LinkBehaviour";
+import Link from "next/link";
 
 // We are here for the font families only, the fonts are loaded in the layout
 const rhd = Red_Hat_Display({subsets: ['latin']})
@@ -60,12 +59,7 @@ const theme = responsiveFontSizes(
 			components: {
 				MuiLink: {
 					defaultProps: {
-						component: LinkBehaviour
-					}
-				},
-				MuiButtonBase: {
-					defaultProps: {
-						component: LinkBehaviour
+						component: Link
 					}
 				}
 			},

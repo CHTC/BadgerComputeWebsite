@@ -1,4 +1,5 @@
 "use client";
+
 import { Box, Typography, Button, Container, Fade, Card, CardMedia, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useEffect, useRef, useState } from "react";
@@ -44,7 +45,7 @@ export default function Home() {
             objectFit: "cover",
             zIndex: 1,
           }}
-          src="/website/jupyter-video.webm"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-video.webm`}
         />
         {/* Overlay Content */}
         <Box
@@ -118,7 +119,7 @@ export default function Home() {
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
-                image="/website/jupyter-code.png"
+                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-code.png`}
                 alt="Code in Jupyter Notebook"
                 sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
@@ -137,7 +138,7 @@ export default function Home() {
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
-                image="/website/jupyter-compute.png"
+                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-compute.png`}
                 alt="Compute in Jupyter Notebook"
                 sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
@@ -161,7 +162,7 @@ export default function Home() {
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
-                image="/website/jupyter-interact.png"
+                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-interact.png`}
                 alt="Interact in Jupyter Notebook"
                 sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />

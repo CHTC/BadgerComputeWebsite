@@ -28,13 +28,16 @@ const Header = () => {
 					</Link>
 					<Box sx={{ display:'flex', justifyContent: 'center', flexGrow: 1 }}>
 						{pages.map((page) => (
-								<Button
+								<Link
 										key={page}
 										href={`/${page.toLowerCase().replace(/\s+/g, '-')}`}
-										sx={{ my: 2, color: 'white', display: 'block' }}
 								>
-									{page}
-								</Button>
+									<Button
+											sx={{ my: 2, color: 'white', display: 'block' }}
+									>
+										{page}
+									</Button>
+								</Link>
 						))}
 					</Box>
 					<Box display={"flex"}>

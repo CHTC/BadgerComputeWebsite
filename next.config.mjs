@@ -5,10 +5,9 @@ import remarkFrontmatter from "remark-frontmatter";
 const nextConfig = {
 	// Configure `pageExtensions` to include markdown and MDX files
 	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-	basePath: '/BadgerHub',
+	basePath: process.env.NEXT_PUBLIC_BASE_PATH,
 	output: "export"
 };
-
 
 const withMDX = createMDX({
 	extension: /\.(md|mdx)$/,
