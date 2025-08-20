@@ -2,7 +2,12 @@
 
 import Button from "@mui/material/Button";
 import React, {ReactNode, useEffect} from "react";
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Link from "@mui/material/Link";
 import {NOTEBOOK_URL} from "@/app/config";
 
 
@@ -51,9 +56,11 @@ const LaunchButton = ({children}: {children: ReactNode}) => {
 						skipFutureCheck();
 						launchNotebooks()
 					}}>Course Is Complete</Button>
-					<Button href={'/get-started'} autoFocus>
-						Take Me To The Course
-					</Button>
+					<Link href={'/get-started'}>
+						<Button autoFocus>
+							Take Me To The Course
+						</Button>
+					</Link>
 				</DialogActions>
 			</Dialog>
 		</>
