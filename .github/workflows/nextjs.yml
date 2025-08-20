@@ -55,6 +55,7 @@ jobs:
             npm install -g pnpm
           fi
         
+          pnpm install
           pnpm run build
 
       - name: Upload artifact
