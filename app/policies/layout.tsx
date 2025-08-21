@@ -13,7 +13,7 @@ export default function Layout({
 }>) {
 	return (
 			<>
-				<Container maxWidth="xl" sx={{py: 4}}>
+				<Container maxWidth="lg" sx={{py: 4}}>
 					<main>
 						{children}
 					</main>

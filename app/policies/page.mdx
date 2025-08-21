@@ -1,3 +1,4 @@
+import Alert from '@mui/material/Alert';
 
 # BadgerHub Policies
 
@@ -34,15 +35,16 @@ Each **active** BadgerHub user is allocated 20 GB of persistent storage.
 This storage is retained for **up to** 30 days after your last login.
 **After 30 days without logging in BadgerHub, you are considered an INACTIVE user and your data will be automatically deleted.**
 
-!!! danger
-BadgerHub storage is **not backed up**.
-It is intended for **temporary, convenient storage only**.
+<Alert severity="error">
+	BadgerHub storage is <strong>not backed up</strong>.<br />
+	It is intended for <strong>temporary, convenient storage only</strong>.<br /><br />
+	You should never store your only copy of important data on BadgerHub.<br />
+	Always keep external backups in systems like <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> or other cloud storage platforms.
+</Alert>
 
-    You should never store your only copy of important data on BadgerHub.
-    Always keep external backups in systems like [ResearchDrive](https://it.wisc.edu/services/researchdrive/) or other cloud storage platforms.
-
-!!! warning
-BadgerHub administrators reserve the right to remove any data from user storage if needed to maintain overall system performance.
+<Alert severity="warning">
+	BadgerHub administrators reserve the right to remove any data from user storage if needed to maintain overall system performance.
+</Alert>
 
 ## Availability
 

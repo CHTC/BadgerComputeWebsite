@@ -17,7 +17,7 @@ const pages = ['Get Started', 'Policies']
 
 const Header = () => {
 	return (
-		<AppBar position="static" elevation={0}>
+		<AppBar position="sticky" elevation={0}>
 			<Container maxWidth="lg">
 				<Toolbar disableGutters>
 					<Link href={"/"} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={3}>
