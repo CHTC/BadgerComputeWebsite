@@ -1,7 +1,11 @@
 import { glob } from 'glob';
+
+
 import DocumentationPage from "@/components/DocumentationPage";
 
-const RELATIVE_DOCS_PATH = '../../../docs';
+
+
+const RELATIVE_DOCS_PATH = '/docs';
 
 export default async function Page({ params }: {
 	params: Promise<{ slug: string[] }>;
@@ -46,10 +50,12 @@ const importSlug = async (slug: string[]) => {
 
 	for (const ext of EXTENSIONS) {
 		for (const file of FILES) {
-			const fullPath = `${RELATIVE_DOCS_PATH}/${path}${file}.${ext}`;
+			const fullPath = `${path}${file}.${ext}`;
 			try {
-				return await import(fullPath);
-			} catch (e) {}
+				return await import(`@/docs/${fullPath}`);
+			} catch (e) {
+				console.error(fullPath);
+			}
 		}
 	}
 

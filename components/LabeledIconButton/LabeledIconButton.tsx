@@ -11,13 +11,14 @@ interface LabeledIconButtonProps extends IconButtonProps {
  * IconButton with a small label below it in a vertical layout.
  */
 const LabeledIconButton = ({label, href, ...props}: LabeledIconButtonProps) => {
+
 	return (
 		<Link href={href}>
 			<Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
 				<IconButton {...props} sx={{...props.sx, mb: -1}}>
 					{props.children}
 				</IconButton>
-				<Typography variant="caption" display="block" textAlign="center">
+				<Typography variant="caption" display="block" textAlign="center" sx={props.sx}>
 					{label}
 				</Typography>
 			</Box>
