@@ -4,7 +4,6 @@ import type { NavigationItem } from "@/components/DocumentationSidebar";
 
 // You can update the navigation structure here.
 export const navigation: NavigationItem[] = [
-		{ label: "Docs Home", path: "docs/index.md" },
 		{
 			label: "Explore",
 			children: [
@@ -17,8 +16,13 @@ export const navigation: NavigationItem[] = [
 			children: [
 				{ label: "Jupyter", path: "docs/jupyter.md" },
 				{ label: "Notebooks", path: "docs/notebooks.md" },
-				{ label: "Software", path: "docs/software.md" },
-				{ label: "Data", path: "docs/data.md" }
+				{
+					label: "Data",
+					path: "docs/data.md",
+					children: [
+						{ label: "Software", path: "docs/software.md" }
+					]
+				}
 			]
 		},
 		{

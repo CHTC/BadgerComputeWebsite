@@ -18,7 +18,7 @@ const DocumentationPage = ({Page, tocEntries}: DocumentationPageProps) => {
 				<Page />
 			</Grid>
 			<Grid size={3}>
-				<Box sx={{padding: 2, position: 'sticky', top: 16}}>
+				<Box sx={{padding: 2, position: 'sticky', top: 70}}>
 					<TableOfContents entries={tocEntries} />
 				</Box>
 			</Grid>

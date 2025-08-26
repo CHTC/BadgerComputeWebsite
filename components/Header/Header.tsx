@@ -4,12 +4,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import {Forum, Description} from '@mui/icons-material';
+import {Forum, RocketLaunch} from '@mui/icons-material';
 import React from "react";
 
 import Icon from "./Icon";
-import LaunchButton from "./LaunchButton";
-import {DISCOURSE_URL} from "@/app/config";
+import {DISCOURSE_URL, NOTEBOOK_URL} from "@/app/config";
 import Link from "@mui/material/Link";
 import LabeledIconButton from "@/components/LabeledIconButton";
 
@@ -48,16 +47,13 @@ const Header = () => {
 						<LabeledIconButton label={"Discourse"} href={DISCOURSE_URL} sx={{color: "primary.contrastText"}}>
 							<Forum />
 						</LabeledIconButton>
-						<LabeledIconButton label={"Docs"} href={"/docs"} sx={{color: "primary.contrastText"}}>
-							<Description />
+						<LabeledIconButton label={"Notebook"} href={NOTEBOOK_URL} sx={{color: "primary.contrastText"}}>
+							<RocketLaunch />
 						</LabeledIconButton>
-						<LaunchButton>Launch Notebook</LaunchButton>
 					</Box>
-
 				</Toolbar>
 			</Container>
 		</AppBar>
-
 	)
 }
 

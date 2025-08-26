@@ -1,7 +1,6 @@
 import React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import Link from "@mui/material/Link";
 import { TableOfContentsEntry } from "../types";
 
@@ -16,13 +15,11 @@ function TOCList({ entries }: TableOfContentsProps ) {
       {entries.map((entry) => (
         <React.Fragment key={entry.id || entry.value}>
           <ListItem sx={{ pl: (entry.depth - 1) * 2 }} disableGutters>
-            {entry.id ? (
+            {entry.id &&
               <Link href={`#${entry.id}`} underline="hover" color="inherit">
-                <ListItemText primary={entry.value} />
+								{entry.value}
               </Link>
-            ) : (
-              <ListItemText primary={entry.value} />
-            )}
+						}
           </ListItem>
           {entry.children && entry.children.length > 0 && (
             <TOCList entries={entry.children} />

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -11,8 +10,9 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import MuiLink from '@mui/material/Link';
+import Link from '@mui/material/Link';
 import type { NavigationItem } from './types';
+import {usePathname} from "next/navigation";
 
 function NavigationFolder({ items, level = 0 }: { items: NavigationItem[]; level?: number }) {
   return (
@@ -25,6 +25,9 @@ function NavigationFolder({ items, level = 0 }: { items: NavigationItem[]; level
 }
 
 function NavigationNode({ item, level }: { item: NavigationItem; level: number }) {
+
+	const pathname = usePathname()
+
   const [open, setOpen] = useState(level < 1);
   const hasChildren = !!item.children && item.children.length > 0;
   if (hasChildren) {
@@ -47,13 +50,16 @@ function NavigationNode({ item, level }: { item: NavigationItem; level: number }
       </>
     );
   }
+
   // Leaf node (link)
+	const href = `/${item.path?.replace(/\.mdx?$|\/index\.md$/, '') || ''}/`
+	const isActive = pathname === href
   return (
-    <ListItem disablePadding sx={{ pl: (level + 1) * 2 }}>
-      <MuiLink component={Link} href={`/${item.path?.replace(/\.mdx?$|\/index\.md$/, '') || ''}`} underline="hover" color="inherit">
-        <ListItemText primary={item.label} />
-      </MuiLink>
-    </ListItem>
+		<Link href={href} underline="hover" color={isActive ? 'primary.main' : 'text.primary'} fontWeight={isActive ? 600 : 400}>
+			<ListItem sx={{ pl: (level + 1) * 2 }}>
+				{item.label}
+			</ListItem>
+		</Link>
   );
 }
 
