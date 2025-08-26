@@ -98,9 +98,6 @@ importers:
       remark-mdx-frontmatter:
         specifier: ^5.2.0
         version: 5.2.0
-      remark-mdx-toc:
-        specifier: link:lib
-        version: link:lib
       remark-parse:
         specifier: ^11.0.0
         version: 11.0.0
