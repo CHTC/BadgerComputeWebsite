@@ -20,6 +20,7 @@ const rht = Red_Hat_Text({
 export const metadata: Metadata = {
   title: "Badger Compute",
   description: "Jupyter-based interactive compute service for researchers at the University of Wisconsin-Madison",
+	metadataBase: new URL('https://badgercompute.chtc.chtc.io'),
 };
 
 export default function RootLayout({
