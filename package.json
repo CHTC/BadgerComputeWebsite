@@ -39,7 +39,6 @@
     "remark-flexible-toc": "^1.2.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
-    "remark-mdx-toc": "link:lib",
     "remark-parse": "^11.0.0",
     "remark-toc": "^9.0.0",
     "unist-util-mdx-define": "^1.1.2"
