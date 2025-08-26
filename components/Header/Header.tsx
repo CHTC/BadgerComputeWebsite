@@ -5,15 +5,20 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-import {Forum} from '@mui/icons-material';
+import {Forum, Description} from '@mui/icons-material';
 import React from "react";
 
 import Icon from "./Icon";
 import LaunchButton from "./LaunchButton";
 import {DISCOURSE_URL} from "@/app/config";
 import Link from "@mui/material/Link";
+import LabeledIconButton from "@/components/LabeledIconButton";
 
-const pages = ['Get Started', 'Policies']
+const pages = [
+	{ label: 'Get Started', path: '/get-started' },
+	{ label: 'Policies', path: '/policies' },
+	{ label: 'Documentation', path: '/docs' }
+]
 
 const Header = () => {
 	return (
@@ -23,28 +28,31 @@ const Header = () => {
 					<Link href={"/"} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={3}>
 						<Icon />
 						<Typography variant="h4" sx={{color: 'primary.contrastText'}}>
-							BadgerHub
+							BadgerCompute
 						</Typography>
 					</Link>
 					<Box sx={{ display:'flex', justifyContent: 'center', flexGrow: 1 }}>
-						{pages.map((page) => (
+						{pages.map(({label, path}) => (
 								<Link
-										key={page}
-										href={`/${page.toLowerCase().replace(/\s+/g, '-')}`}
+										key={path}
+										href={path}
 								>
 									<Button
 											sx={{ my: 2, color: 'white', display: 'block' }}
 									>
-										{page}
+										{label}
 									</Button>
 								</Link>
 						))}
 					</Box>
-					<Box display={"flex"}>
-						<LaunchButton>Launch</LaunchButton>
-						<IconButton href={DISCOURSE_URL} sx={{color: "primary.contrastText"}}>
+					<Box display={"flex"} alignItems={'center'} gap={1}>
+						<LabeledIconButton label={"Discourse"} href={DISCOURSE_URL} sx={{color: "primary.contrastText"}}>
 							<Forum />
-						</IconButton>
+						</LabeledIconButton>
+						<LabeledIconButton label={"Docs"} href={"/docs"} sx={{color: "primary.contrastText"}}>
+							<Description />
+						</LabeledIconButton>
+						<LaunchButton>Launch Notebook</LaunchButton>
 					</Box>
 
 				</Toolbar>
@@ -53,6 +61,5 @@ const Header = () => {
 
 	)
 }
-
 
 export default Header;

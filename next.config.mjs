@@ -1,19 +1,19 @@
 import createMDX from '@next/mdx'
-import remarkFrontmatter from "remark-frontmatter";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	// Configure `pageExtensions` to include markdown and MDX files
 	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 	basePath: process.env.NEXT_PUBLIC_BASE_PATH,
-	output: "export"
+	output: "export",
+	trailingSlash: true,
 };
 
 const withMDX = createMDX({
 	extension: /\.(md|mdx)$/,
 	options: {
-		remarkPlugins: [],
-		rehypePlugins: []
+		remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
+		rehypePlugins: ['rehype-slug', '@stefanprobst/rehype-extract-toc', '@stefanprobst/rehype-extract-toc/mdx']
 	}
 })
 

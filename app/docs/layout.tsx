@@ -1,0 +1,37 @@
+import type {Metadata} from "next";
+
+
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+
+import DocumentationSidebar from "@/components/DocumentationSidebar";
+import {navigation} from "./navigation";
+
+export const metadata: Metadata = {
+	title: "Documentation",
+	description: "BadgerHub documentation and tutorials",
+};
+
+export default async function Layout({
+ 	params,
+	children
+}: LayoutProps<'/docs'>) {
+
+	return (
+			<>
+				<Container maxWidth="xl" sx={{py: 4}}>
+					<Grid container spacing={2} sx={{mb: 4}}>
+						<Grid size={2}>
+							<DocumentationSidebar navigation={navigation} />
+						</Grid>
+					  <Grid size={10}>
+							<main>
+								{children}
+							</main>
+						</Grid>
+					</Grid>
+				</Container>
+			</>
+	);
+}
+
