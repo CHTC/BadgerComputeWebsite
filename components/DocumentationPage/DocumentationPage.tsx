@@ -1,5 +1,5 @@
-import {ReactNode, ElementType} from "react";
-import {Box, Grid, Paper} from "@mui/material";
+import {ElementType} from "react";
+import {Box, Grid} from "@mui/material";
 
 
 import TableOfContents from "@/components/TableOfContents";
@@ -8,10 +8,10 @@ import {TableOfContentsEntry} from "@/components/types";
 export interface DocumentationPageProps {
 	Page: ElementType;
 	tocEntries: TableOfContentsEntry[];
-	frontMatter: any;
+	frontMatter: Record<string, unknown>;
 }
 
-const DocumentationPage = ({Page, tocEntries, frontMatter}: DocumentationPageProps) => {
+const DocumentationPage = ({Page, tocEntries}: DocumentationPageProps) => {
 	return (
 		<Grid container spacing={2}>
 			<Grid size={9}>

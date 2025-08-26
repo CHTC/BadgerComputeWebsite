@@ -17,7 +17,7 @@ export default async function Page({ params }: {
 // Get the doc paths, looking for md and mdx files in the docs directory
 export async function generateStaticParams() {
 	const docPaths = await glob("docs/**/*.{md,mdx}");
-	const y = docPaths.map((doc) => {
+	return docPaths.map((doc) => {
 		const slug = doc.split("/").slice(1);
 
 		// At this point we have two files types: index.md/x and <name>.md/x
@@ -30,10 +30,6 @@ export async function generateStaticParams() {
 
 		return { slug }
 	})
-
-	console.log(y)
-
-	return y;
 }
 
 /**

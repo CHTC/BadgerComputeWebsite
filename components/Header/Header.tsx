@@ -3,7 +3,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import {Forum, Description} from '@mui/icons-material';
 import React from "react";
