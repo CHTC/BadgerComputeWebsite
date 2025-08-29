@@ -1,3 +1,6 @@
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+
 # Getting Started with BadgerCompute (UW–Madison JupyterHub)
 
 Welcome! This short, hands-on intro will get you running on **BadgerCompute**, UW–Madison’s JupyterHub service. You’ll:
@@ -19,16 +22,17 @@ Welcome! This short, hands-on intro will get you running on **BadgerCompute**, U
 
 ## 1) Log in and choose the Basic Data Science environment
 
-1. Go to the BadgerCompute JupyterHub.<br>
-[launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu){ .md-button }
+1. Go to the BadgerCompute JupyterHub.
+[launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu)
 2. Log in with your UW credentials and accept the Terms if prompted.
 3. On the **Spawner** page, choose the **Image**:
    - **Image:** `Basic Data Science` (includes libraries from the Python, R, and Julia communities)
 4. Click **Start** (or **Spawn**). You’ll land in **JupyterLab**.
 
-!!! warning "This may take a few minutes"
-    
-    Wait patiently while your server starts. If it takes more than 10 minutes, try refreshing the page or logging out and back in. Wait times may be longer during peak usage periods.
+<Alert severity="warning" sx={{ mb: 3 }}>
+  <AlertTitle>This may take a few minutes</AlertTitle>
+  Wait patiently while your server starts. If it takes more than 10 minutes, try refreshing the page or logging out and back in. Wait times may be longer during peak usage periods.
+</Alert>
 
 ---
 
@@ -52,9 +56,10 @@ Let’s keep this tidy:
 3. Name it: `badgercompute_intro`
 4. Double-click to enter that folder.
 
-!!! tip "Persistent storage"
-    
-    Your `/work` directory is the only top-level directory which offers persistent storage. Files kept here will remain available across sessions for up to 30 days after your last login. Files in other directories may be deleted when your server stops.
+<Alert severity="info" sx={{ mb: 3 }}>
+  <AlertTitle>Persistent storage</AlertTitle>
+  Your `/work` directory is the only top-level directory which offers persistent storage. Files kept here will remain available across sessions for up to 30 days after your last login. Files in other directories may be deleted when your server stops.
+</Alert>
 
 ---
 
@@ -103,32 +108,30 @@ os.chdir("badgercompute_intro")
 !ls -lh
 ```
 
-!!! note 
-    If you don’t see the files, ensure you’re in the correct folder. The current working directory for the Terminal is shown by pwd. Inside Python, try:
-
-    ```python
-    import os
-    print(os.getcwd())
-    ```
-
-    You should also be able to see the files in the **File Browser**. If you don't, click the refresh icon on the **File Browser**.
+<Alert severity="info" sx={{ mb: 3 }}>
+	<AlertTitle>Note</AlertTitle>
+	If you don&#39;t see the files, ensure you&#39;re in the correct folder. The current working directory for the Terminal is shown by `pwd`.
+	Inside Python, try:
+	```python
+	import os
+	print(os.getcwd())
+	```
+	You should also be able to see the files in the __File Browser__. If you don&#39;t, click the refresh icon on the __File Browser__.
+</Alert>
 
 ## 5) Open the downloaded notebook (optional exploration)
 
 In the File Browser, double-click getting_started.ipynb.
 Skim a few cells to see Markdown, code cells, and keyboard shortcuts.
 
-!!! tip "Keyboard tips"
-
-    ++shift+enter++: run a cell
-    
-    ++esc++ then ++m++: change a cell to Markdown
-    
-    ++esc++ then ++y++: change a cell to Code
-    
-    ++a++: insert above
-    
-    ++b++: insert cell below
+<Alert severity="info" sx={{ mb: 3 }}>
+	<AlertTitle>Keyboard tips</AlertTitle>
+	- **shift+enter**\: run a cell
+	- **esc** then **m**\: change a cell to Markdown
+	- **esc** then **y**\: change a cell to Code
+	- **a**\: insert above
+	- **b**\: insert cell below
+</Alert>
 
 ## 6) Create your own toy notebook
 
@@ -140,9 +143,12 @@ Under **Notebook**, choose Python 3 (or similar).
 
 Save it right away as `toy_penguins_analysis.ipynb` inside `badgercompute_intro/`.
 
-!!! tip "Saving"
 
-    You can also save with ++cmd+s++ or File → Save Notebook.
+<Alert>
+	<AlertTitle>Saving</AlertTitle>
+	You can also save with ++cmd+s++ or File → Save Notebook.
+</Alert>
+
 
 ### 6.1) Import libraries and load data
 ```python
@@ -199,9 +205,9 @@ plt.xlabel("flipper_length_mm")
 plt.show()
 ```
 
-!!! tip 
-    
-    If plots don’t render, ensure the cell runs without errors and your kernel is Python 3.
+<Alert severity="info" sx={{ mb: 3 }}>
+  If plots don’t render, ensure the cell runs without errors and your kernel is Python 3.
+</Alert>
 
 ## 7) Annotate your notebook
 
@@ -209,17 +215,18 @@ Jupyter notebooks are great for mixing code, results, and narrative text. This m
 
 Double-click a cell to edit it, then change its type to Markdown (++esc++ then ++m++).
 
-!!! tip "Here are some quick Markdown tips:"
-
-    - **Headings**: `# H1`, `## H2`, `### H3`
-    - **Bold**: `**bold**` or `__bold__`
-    - **Italics**: `*italics*` or `_italics_`
-    - **Lists**: `- item` or `1. item`
-    - **Links**: `[text](url)`
-    - **Code**: `` `code` `` for inline, or triple backticks for blocks:
-        ```python
-        print("Hello, Markdown!")
-        ```
+<Alert severity="info" sx={{ mb: 3 }}>
+  <AlertTitle>Here are some quick Markdown tips:</AlertTitle>
+  - **Headings**: `# H1`, `## H2`, `### H3`
+  - **Bold**: `**bold**` or `__bold__`
+  - **Italics**: `*italics*` or `_italics_`
+  - **Lists**: `- item` or `1. item`
+  - **Links**: `[text](url)`
+  - **Code**: `` `code` `` for inline, or triple backticks for blocks:
+    ```python
+    print("Hello, Markdown!")
+    ```
+</Alert>
 
 You can also add images, LaTeX math, and more. See the [Jupyter Markdown Guide](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) for details.
 
