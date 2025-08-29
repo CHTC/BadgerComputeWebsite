@@ -144,7 +144,7 @@ const DesktopToolbar = () => (
 			</Grid>
 			<Grid size={{md: "auto", lg: 4}}>
 				<Box display={"flex"} justifyContent={'right'} alignItems={'center'} gap={2}>
-					<LabeledIconButton label={"Discourse"} href={DISCOURSE_URL} sx={{color: "primary.contrastText"}}>
+					<LabeledIconButton label={"Community"} href={DISCOURSE_URL} sx={{color: "primary.contrastText"}}>
 						<Forum />
 					</LabeledIconButton>
 					<LaunchButton>Launch</LaunchButton>

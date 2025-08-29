@@ -9,6 +9,7 @@ import {Red_Hat_Display, Red_Hat_Text} from "next/font/google";
 import "./globals.css"
 import {theme} from "./theme";
 import Header from "@/components/Header";
+import LogoBar from "@/components/LogoBar";
 
 
 const rhd = Red_Hat_Display({
@@ -50,6 +51,7 @@ export default function RootLayout({
                 }}
                 accessibilityEmail={"chtc@cs.wisc.edu"}
             />
+						<LogoBar />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </Box>

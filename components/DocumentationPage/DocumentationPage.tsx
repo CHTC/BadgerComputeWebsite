@@ -14,10 +14,10 @@ export interface DocumentationPageProps {
 const DocumentationPage = ({Page, tocEntries}: DocumentationPageProps) => {
 	return (
 		<Grid container spacing={2}>
-			<Grid size={9}>
+			<Grid size={{xs: 12, md: 9}}>
 				<Page />
 			</Grid>
-			<Grid size={3}>
+			<Grid size={3} display={{xs: 'none', md: 'block'}}>
 				<Box sx={{padding: 2, position: 'sticky', top: 70}}>
 					<TableOfContents entries={tocEntries} />
 				</Box>
