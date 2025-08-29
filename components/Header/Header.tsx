@@ -10,7 +10,7 @@ import {Forum, Menu, Close} from '@mui/icons-material';
 import React, {useState} from "react";
 
 import Icon from "./Icon";
-import {DISCOURSE_URL, NOTEBOOK_URL} from "@/app/config";
+import {DISCOURSE_URL} from "@/app/config";
 import Link from "@mui/material/Link";
 import LabeledIconButton from "@/components/LabeledIconButton";
 import LaunchButton from "@/components/Header/LaunchButton";

@@ -1,0 +1,78 @@
+---
+title: Admin Docs
+---
+
+import Alert from "@mui/material/Alert"
+import AlertTitle from "@mui/material/AlertTitle"
+import WhatshotIcon from '@mui/icons-material/Whatshot'; // Find more here: https://mui.com/material-ui/material-icons/
+import AlertDropDown from "@/components/AlertDropDown";
+
+# Admin Docs
+
+**If you are a user, you are in the wrong place**
+
+The documentation here has a couple conversions from mkdocs items to JSX components.
+
+## Alert ( Admonitions )
+
+### Previous
+
+```md
+!!! warning "This may take a few minutes"
+    
+    Wait patiently while your server starts. If it takes more than 10 minutes, try refreshing the page or logging out and back in. Wait times may be longer during peak usage periods.
+```
+
+### Now
+
+Now you have to use the (Alert component)[https://mui.com/material-ui/react-alert/].
+
+#### Basic
+
+```js
+import Alert from "@mui/material/Alert";
+
+// sx={{ mb: 3 }} adds margin to the bottom to space things out
+<Alert severity="info" sx={{ mb: 3 }}>
+	This is an info alert — check it out!
+
+	You can put any markdown content in here, including **bold text**, _italic text_, and [links](https://example.com).
+</Alert>
+```
+
+<Alert severity="info" sx={{ mb: 3 }}>
+	This is an info alert — check it out!
+
+	You can put any markdown content in here, including `code`, **bold text**, _italic text_, and [links](https://example.com).
+</Alert>
+
+#### Advanced
+
+```js
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import WhatshotIcon from '@mui/icons-material/Whatshot'; // Find more here: https://mui.com/material-ui/material-icons/
+
+<Alert severity="info" icon={<WhatshotIcon color="info" />} sx={{ mb: 3 }}>
+  <AlertTitle>Questions or Concerns?</AlertTitle>
+  See the &quot;Policies&quot; section of the community <a href={"https://example.com"} target={'_blank'}>Discourse forum</a>.
+</Alert>
+```
+
+<Alert severity="info" icon={<WhatshotIcon color="info" />} sx={{ mb: 3 }}>
+<AlertTitle>Questions or Concerns?</AlertTitle>
+See the &quot;Policies&quot; section of the community <a href={"https://example.com"} target={'_blank'}>Discourse forum</a>.
+</Alert>
+
+```js
+// This is a custom component but takes the same props as Alert but it hides the content until clicked
+import AlertDropDown from "@/components/AlertDropDown";
+
+<AlertDropDown title="Click to expand" severity="info">
+	This is the hidden content that shows when you click to expand. You can put any markdown content in here, including **bold text**, _italic text_, and [links](https://example.com).
+</AlertDropDown>
+```
+
+<AlertDropDown title="Click to expand" severity="info">
+	This is the hidden content that shows when you click to expand. You can put any markdown content in here, including **bold text**, _italic text_, and [links](https://example.com).
+</AlertDropDown>

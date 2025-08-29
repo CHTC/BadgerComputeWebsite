@@ -1,16 +1,38 @@
 import { glob } from 'glob';
 
 import DocumentationPage from "@/components/DocumentationPage";
+import {Metadata, ResolvingMetadata} from "next";
+
+type Props = {
+	params: Promise<{ slug: string[] }>
+}
+
+export async function generateMetadata(
+	{ params }: Props,
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	const slug = (await params).slug;
+	const { default: Post, frontmatter, tableOfContents } = await importSlug(slug);
+
+	return {
+		title: frontmatter?.title || 'Documentation',
+		description: frontmatter?.description || 'BadgerHub documentation and tutorials',
+		openGraph: {
+			title: frontmatter?.title || 'Documentation',
+			description: frontmatter?.description || 'BadgerHub documentation and tutorials',
+		}
+	}
+}
 
 
 export default async function Page({ params }: {
 	params: Promise<{ slug: string[] }>;
 }) {
 	const slug = (await params).slug;
-	const { default: Post, frontmatter: any, tableOfContents: TableOfContents } = await importSlug(slug);
+	const { default: Post, frontmatter, tableOfContents } = await importSlug(slug);
 
 	return (
-			<DocumentationPage Page={Post} tocEntries={TableOfContents} frontMatter={any} />
+			<DocumentationPage Page={Post} tocEntries={tableOfContents} frontMatter={frontmatter} />
 	)
 }
 
@@ -39,18 +61,18 @@ export async function generateStaticParams() {
  */
 const importSlug = async (slug: string[]) => {
 
-	const EXTENSIONS = ['md', 'mdx'];
 	const FILES = ['/index', ''];
 
 	const path = slug.join('/')
 
-	for (const ext of EXTENSIONS) {
-		for (const file of FILES) {
-			const fullPath = `${path}${file}.${ext}`;
-			try {
-				return await import(`@/docs/${fullPath}`);
-			} catch {}
-		}
+	for (const file of FILES) {
+		const fullPath = `${path}${file}`;
+		try {
+			return await import(`@/docs/${fullPath}.md`);
+		} catch {}
+		try {
+			return await import(`@/docs/${fullPath}.mdx`);
+		} catch {}
 	}
 
 	throw new Error(`Could not find document for slug: ${slug.join('/')}`);

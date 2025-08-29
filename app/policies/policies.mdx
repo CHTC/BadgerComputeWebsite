@@ -2,7 +2,7 @@ import Link from "@mui/material/Link";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import WhatshotIcon from '@mui/icons-material/Whatshot'; // Find more here: https://mui.com/material-ui/material-icons/
-import {DISCOURSE_URL, NOTEBOOK_URL} from "@/app/config";
+import {DISCOURSE_URL} from "@/app/config";
 
 # BadgerCompute Policies
 
@@ -13,7 +13,7 @@ Any UW - Madison affiliate can access BadgerHub after completing the [Canvas cer
 
 <Alert severity="info" icon={<WhatshotIcon color="info" />} sx={{ mb: 3 }}>
 	<AlertTitle>Questions or Concerns?</AlertTitle>
-	<>See the &quot;Policies&quot; section of the community <Link href={DISCOURSE_URL} target={'_blank'}>Discourse forum</Link>.</>
+	See the &quot;Policies&quot; section of the community <Link href={DISCOURSE_URL} target={'_blank'}>Discourse forum</Link>.
 </Alert>
 
 ## Acceptable Use Policy
@@ -41,7 +41,8 @@ The data in this storage is retained for **up to** 30 days after your last login
 **After 30 days without logging in BadgerCompute, your data will be automatically deleted.**
 
 <Alert severity="error" sx={{ mb: 3 }}>
-	BadgerCompute storage is **not backed up** It is intended for **temporary, convenient storage only**.
+	<AlertTitle>BadgerCompute is not backed up</AlertTitle>
+	It is intended for **temporary, convenient storage only**.
 
 	You should never store your only copy of important data on BadgerCompute. Always keep external backups in systems like <a href="https://it.wisc.edu/services/researchdrive/" target="_blank" rel="noopener">ResearchDrive</a> or other cloud storage platforms.
 </Alert>
