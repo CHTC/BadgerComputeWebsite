@@ -25,32 +25,32 @@ const components: MDXComponents = {
 	h1: ({ id, children, ...props }) => {
     const text = getTextFromChildren(children);
     const generatedId = id || slugify(text);
-    return <Typography variant="h2" gutterBottom id={generatedId} {...props}>{children}</Typography>;
+    return <Typography component={'h1'} variant="h2" gutterBottom id={generatedId} {...props}>{children}</Typography>;
   },
 	h2: ({ id, children, ...props }) => {
     const text = getTextFromChildren(children);
     const generatedId = id || slugify(text);
-    return <Typography variant="h3" gutterBottom id={generatedId} {...props}>{children}</Typography>;
+    return <Typography component={'h2'} variant="h3" gutterBottom id={generatedId} {...props}>{children}</Typography>;
   },
 	h3: ({ id, children, ...props }) => {
     const text = getTextFromChildren(children);
     const generatedId = id || slugify(text);
-    return <Typography variant="h4" gutterBottom id={generatedId} {...props}>{children}</Typography>;
+    return <Typography component={'h3'} variant="h4" gutterBottom id={generatedId} {...props}>{children}</Typography>;
   },
 	h4: ({ id, children, ...props }) => {
     const text = getTextFromChildren(children);
     const generatedId = id || slugify(text);
-    return <Typography variant="h5" gutterBottom id={generatedId} {...props}>{children}</Typography>;
+    return <Typography component={'h4'} variant="h5" gutterBottom id={generatedId} {...props}>{children}</Typography>;
   },
 	h5: ({ id, children, ...props }) => {
     const text = getTextFromChildren(children);
     const generatedId = id || slugify(text);
-    return <Typography variant="h6" gutterBottom id={generatedId} {...props}>{children}</Typography>;
+    return <Typography component={'h5'} variant="h6" gutterBottom id={generatedId} {...props}>{children}</Typography>;
   },
 	h6: ({ id, children, ...props }) => {
 		const text = getTextFromChildren(children);
 		const generatedId = id || slugify(text);
-		return <Typography variant="h6" gutterBottom id={generatedId} {...props}>{children}</Typography>;
+		return <Typography component={'h6'} variant="h6" gutterBottom id={generatedId} {...props}>{children}</Typography>;
 	},
 	p: (props) => <Typography variant="body1" {...props} />, // use sx for spacing
 	a: (props) => <MuiLink {...props} />,

@@ -14,7 +14,7 @@ export interface DocumentationCardProps {
 }
 
 const DocumentationCard = ({ icon, title, description }: DocumentationCardProps) => (
-  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', p: 2 }}>
+  <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 2, flexGrow: 1 }}>
     <Box sx={{ mb: 2, mt: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 48 }}>
       {icon}
     </Box>
