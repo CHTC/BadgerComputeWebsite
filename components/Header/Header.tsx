@@ -156,7 +156,7 @@ const DesktopToolbar = () => (
 
 
 const Title = () => (
-		<Link href={"/"} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={{lg: 3, xs: 1}} textDecoration={'none'}>
+		<Link href={"/"} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={{lg: 3, xs: 1}} component={'a'}>
 			<Icon />
 			<Typography variant="h4" sx={{color: 'primary.contrastText'}}>
 				BadgerCompute
