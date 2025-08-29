@@ -1,0 +1,8 @@
+.MuiAlert-message {
+  font-size: .875rem; /* Adjust the font size as needed */
+}
+
+/* Final p tag in a alert doesn't have margin bottom */
+.MuiAlert-message p:last-child {
+    padding-bottom: 0;
+}

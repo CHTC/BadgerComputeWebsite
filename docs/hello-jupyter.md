@@ -1,0 +1,251 @@
+# Getting Started with BadgerCompute (UW–Madison JupyterHub)
+
+Welcome! This short, hands-on intro will get you running on **BadgerCompute**, UW–Madison’s JupyterHub service. You’ll:
+
+1) Launch JupyterLab using the **Basic Data Science** container  
+2) Download (`wget`) a ready-made notebook and a small dataset  
+3) Run a toy analysis in Python (pandas + matplotlib)  
+4) Learn how to save, shut down, and log out
+
+---
+
+## 0) Prerequisites
+
+- A UW NetID and access to **BadgerCompute** (JupyterHub).
+- A modern web browser (Chrome/Firefox/Safari).
+- No local installs required—everything runs in the cloud.
+
+---
+
+## 1) Log in and choose the Basic Data Science environment
+
+1. Go to the BadgerCompute JupyterHub.<br>
+[launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu){ .md-button }
+2. Log in with your UW credentials and accept the Terms if prompted.
+3. On the **Spawner** page, choose the **Image**:
+   - **Image:** `Basic Data Science` (includes libraries from the Python, R, and Julia communities)
+4. Click **Start** (or **Spawn**). You’ll land in **JupyterLab**.
+
+!!! warning "This may take a few minutes"
+    
+    Wait patiently while your server starts. If it takes more than 10 minutes, try refreshing the page or logging out and back in. Wait times may be longer during peak usage periods.
+
+---
+
+## 2) Orient yourself in JupyterLab
+
+- **File Browser** (left sidebar): navigate folders, upload/download files.
+- **Launcher** (main area): create new Notebooks/Terminals/Text files.
+- **Kernel**: the compute engine for your notebook (e.g., Python 3).
+- **Tabs**: notebooks and terminals open as tabs across the top.
+
+**TODO: Add screenshot of JupyterLab interface with annotations**
+
+---
+
+## 3) Create a workspace folder (optional but recommended)
+
+Let’s keep this tidy:
+
+1. In the **File Browser**, double-click on `/work` 
+2. Right-click and choose **New Folder**.
+3. Name it: `badgercompute_intro`
+4. Double-click to enter that folder.
+
+!!! tip "Persistent storage"
+    
+    Your `/work` directory is the only top-level directory which offers persistent storage. Files kept here will remain available across sessions for up to 30 days after your last login. Files in other directories may be deleted when your server stops.
+
+---
+
+## 4) Download a notebook + dataset with `wget`
+
+We’ll pull:
+- A small example **Jupyter notebook** (from a public repository)
+- The **Palmer Penguins** dataset (CSV) for a quick analysis
+
+You can do this either from a **Terminal** or **inside a notebook**.
+
+### Option A: Use a Terminal
+1. From the **Launcher**, click **Terminal** in the **Other** section of the Launcher.
+2. Run:
+
+```bash
+# Move into your workspace folder (adjust if your folder name differs)
+cd ~/work/badgercompute_intro
+
+# Download a ready-made notebook (rename it locally for convenience)
+wget -O getting_started.ipynb \
+  https://raw.githubusercontent.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb
+
+# Download the Palmer Penguins dataset (CSV)
+wget -O penguins.csv \
+  https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv
+
+# Verify files
+ls -lh
+```
+### Option B: Use !wget inside a Notebook
+
+In any Python notebook cell, you can prefix shell commands with !:
+
+```python
+import os
+os.makedirs("badgercompute_intro", exist_ok=True)
+os.chdir("badgercompute_intro")
+
+!wget -O getting_started.ipynb \
+  https://raw.githubusercontent.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb
+
+!wget -O penguins.csv \
+  https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv
+
+!ls -lh
+```
+
+!!! note 
+    If you don’t see the files, ensure you’re in the correct folder. The current working directory for the Terminal is shown by pwd. Inside Python, try:
+
+    ```python
+    import os
+    print(os.getcwd())
+    ```
+
+    You should also be able to see the files in the **File Browser**. If you don't, click the refresh icon on the **File Browser**.
+
+## 5) Open the downloaded notebook (optional exploration)
+
+In the File Browser, double-click getting_started.ipynb.
+Skim a few cells to see Markdown, code cells, and keyboard shortcuts.
+
+!!! tip "Keyboard tips"
+
+    ++shift+enter++: run a cell
+    
+    ++esc++ then ++m++: change a cell to Markdown
+    
+    ++esc++ then ++y++: change a cell to Code
+    
+    ++a++: insert above
+    
+    ++b++: insert cell below
+
+## 6) Create your own toy notebook
+
+Now let’s make a new notebook and do a tiny analysis in the BadgerCompute environment:
+
+Go back to the **Launcher** (click the “+” icon at top left if needed).
+
+Under **Notebook**, choose Python 3 (or similar).
+
+Save it right away as `toy_penguins_analysis.ipynb` inside `badgercompute_intro/`.
+
+!!! tip "Saving"
+
+    You can also save with ++cmd+s++ or File → Save Notebook.
+
+### 6.1) Import libraries and load data
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the CSV we downloaded
+df = pd.read_csv("penguins.csv")
+df.head()
+```
+
+### 6.2) Inspect and clean
+
+```python
+# Quick shape and columns
+df.shape, df.columns.tolist()
+```
+
+```python
+# Basic info and missing values
+df.info()
+df.isna().sum()
+```
+
+```python
+# Drop rows missing core numeric measurements to simplify this toy example
+clean = df.dropna(subset=["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"])
+clean.shape
+```
+### 6.3) Simple stats and grouping
+
+```python
+# Average bill length per species
+clean.groupby("species")["bill_length_mm"].mean().round(2)
+```
+
+```python
+# Average body mass by species & sex
+clean.groupby(["species", "sex"])["body_mass_g"].mean().round(1).unstack()
+```
+
+### 6.4) A quick plot (matplotlib)
+
+```python
+# Scatter: bill length vs. bill depth
+ax = clean.plot.scatter(x="bill_length_mm", y="bill_depth_mm", title="Penguins: Bill Measurements")
+plt.show()
+```
+
+```python
+# Histogram of flipper lengths
+ax = clean["flipper_length_mm"].plot.hist(bins=20, title="Penguins: Flipper Length Distribution")
+plt.xlabel("flipper_length_mm")
+plt.show()
+```
+
+!!! tip 
+    
+    If plots don’t render, ensure the cell runs without errors and your kernel is Python 3.
+
+## 7) Annotate your notebook
+
+Jupyter notebooks are great for mixing code, results, and narrative text. This makes them ideal for sharing and reproducible research. You can add Markdown cells to explain your steps. 
+
+Double-click a cell to edit it, then change its type to Markdown (++esc++ then ++m++).
+
+!!! tip "Here are some quick Markdown tips:"
+
+    - **Headings**: `# H1`, `## H2`, `### H3`
+    - **Bold**: `**bold**` or `__bold__`
+    - **Italics**: `*italics*` or `_italics_`
+    - **Lists**: `- item` or `1. item`
+    - **Links**: `[text](url)`
+    - **Code**: `` `code` `` for inline, or triple backticks for blocks:
+        ```python
+        print("Hello, Markdown!")
+        ```
+
+You can also add images, LaTeX math, and more. See the [Jupyter Markdown Guide](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) for details.
+
+## 8) Save, restart, and export
+
+* **Save**: File → Save Notebook (or ++ctrl+cmd+s++)
+* **Restart Kernel**: Kernel → Restart Kernel (useful if things get “stuck”)
+* **Shutdown**: In the **File Browser**, right-click the notebook → **Shut Down Kernel**. This will free up resources.
+* **Export**: File → Save and Export Notebook As… (e.g., HTML)
+
+## 9) File persistence and best practices
+
+* Your files typically persist across sessions in your home space on BadgerCompute.
+  * Keep work organized in folders (`badgercompute_intro`, project1, etc.).
+* Use Git for version control if you’re doing extended work:
+  * Clone a repo in a Terminal: git clone `https://github.com/your/repo.git`
+  * Commit regularly; push to GitHub for off-platform backup.
+
+## 10) Shut down and log out
+
+* Close notebooks or shut down their kernels from the **Running Terminals and Kernels** panel (left sidebar → “Running” tab).
+* From the top right of JupyterLab, click your user menu → **Log Out** (or return to the Hub control panel and choose **Stop My Server** if visible).
+* You can safely close the browser tab.
+
+## Forward - Where to go next
+
+* Explore more notebooks in your repo or public tutorials.
+* Try **pandas** joins/merges, groupby + aggregation, or **matplotlib/plotly** visualizations.
+* Practice uploading your own CSV via the File Browser and running similar analyses.

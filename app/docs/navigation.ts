@@ -4,6 +4,7 @@ import type { NavigationItem } from "@/components/DocumentationSidebar";
 
 // You can update the navigation structure here.
 export const navigation: NavigationItem[] = [
+		{ label: "Introduction", path: "docs/hello-jupyter.md" },
 		{
 			label: "Explore",
 			children: [

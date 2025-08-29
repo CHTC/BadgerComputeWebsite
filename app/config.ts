@@ -1,2 +1,2 @@
-export const DISCOURSE_URL = 'https://discourse.example.com';
-export const NOTEBOOK_URL = 'https://notebooks.example.com';
+export const DISCOURSE_URL = 'https://community.badgercompute.wisc.edu/';
+export const NOTEBOOK_URL = 'https://launch.badgercompute.wisc.edu/';

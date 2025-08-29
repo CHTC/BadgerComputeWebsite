@@ -6,6 +6,7 @@ import { Banner, Footer } from "@/components/UW";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import {Red_Hat_Display, Red_Hat_Text} from "next/font/google";
 
+import "./globals.css"
 import {theme} from "./theme";
 import Header from "@/components/Header";
 
@@ -18,7 +19,7 @@ const rht = Red_Hat_Text({
 })
 
 export const metadata: Metadata = {
-  title: "Badger Compute",
+  title: "BadgerCompute",
   description: "Jupyter-based interactive compute service for researchers at the University of Wisconsin-Madison",
 	metadataBase: new URL('https://badgercompute.chtc.chtc.io'),
 };

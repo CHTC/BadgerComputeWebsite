@@ -40,6 +40,29 @@
 
 ## Using BadgerCompute notebooks
 
+1. **Why can't I log in to the BadgerCompute notebook?**
+
+    [Answer]
+
+1. **Why is my notebook taking forever to start?**
+
+    The BadgerCompute service may be at full capacity or undergoing maintenance.
+    You can continue to wait, or try again later.
+
+1. **How long will my BadgerCompute notebook session last?**
+
+    The notebook session will automatically shut down after X hours, even if you are actively using it.
+
+    A notebook session is considered "inactive" if there are no browsers connected to the session. 
+    After 10 minutes of inactivity, the session will automatically shut down.
+
+1. **The notebook shutdown while I was using it. Will my work be saved?**
+
+    On shutdown, any `.ipynb` files with unsaved changes will be automatically saved.
+    Changes to any other files will be discarded.
+
+    However, only files in the `~/work` directory will persist between sessions.
+    
 ## Software
 
 ## Data
