@@ -8,12 +8,6 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 const navCards = [
 	{
-		label: "Introduction",
-		icon: <InfoOutlinedIcon fontSize="inherit" color="primary" />,
-		description: "Get an overview of BadgerCompute and how it works.",
-		path: navigation.find(n => n.label === "Introduction")?.path || "#"
-	},
-	{
 		label: "Explore",
 		icon: <TravelExploreOutlinedIcon fontSize="inherit" color="primary" />,
 		description: "See feature showcases and example use cases.",
