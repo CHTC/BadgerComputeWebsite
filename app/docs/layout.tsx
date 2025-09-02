@@ -23,7 +23,7 @@ export default async function Layout({
 					<Grid size={{xs: 0, md: 2}} display={{xs: 'none', md: 'block'}}>
 						<DocumentationSidebar navigation={navigation} />
 					</Grid>
-					<Grid size={10}>
+					<Grid size={{xs: 12, md: 10}}>
 						<main>
 							{children}
 						</main>
