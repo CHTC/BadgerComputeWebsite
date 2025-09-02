@@ -13,6 +13,168 @@ import AlertDropDown from "@/components/AlertDropDown";
 
 The documentation here has a couple conversions from mkdocs items to JSX components.
 
+# HTML
+
+You might want to use HTML for more control over your content. Here are some examples of how to do that.
+
+## Inline Styling
+
+You can use inline styling in HTML tags. Remember to use double curly braces for style in JSX.
+
+```html
+<p style={{color: 'blue', fontSize: '20px'}}>This is a blue paragraph with a font size of 20px.</p>
+```
+
+<p style={{color: 'blue', fontSize: '20px'}}>This is a blue paragraph with a font size of 20px.</p>
+
+## Style Blocks
+
+You can use HTML in MDX files. Here is a example of a styled table using the style block. Note the use of the `<style jsx>` tag to add styles to the table, which is wrapped with `{` and `}` to escape the `{}` which are used in JSX.
+
+```html
+<style jsx>{`
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 1em;
+	}
+
+	th, td {
+		border: 1px solid red;
+		padding: 8px;
+		text-align: left;
+	}
+
+	th {
+		background-color: green;
+	}
+
+	tr:nth-child(even) {
+		background-color: purple;
+	}
+`}</style>
+<table>
+	<thead>
+	<tr>
+		<th>Header 1</th>
+		<th>Header 2</th>
+		<th>Header 3</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Row 1, Cell 1</td>
+		<td>Row 1, Cell 2</td>
+		<td>Row 1, Cell 3</td>
+	</tr>
+	<tr>
+		<td>Row 2, Cell 1</td>
+		<td>Row 2, Cell 2</td>
+		<td>Row 2, Cell 3</td>
+	</tr>
+	<tr>
+		<td>Row 3, Cell 1</td>
+		<td>Row 3, Cell 2</td>
+		<td>Row 3, Cell 3</td>
+	</tr>
+	</tbody>
+</table>
+```
+
+<style jsx>{`
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1em;
+    }
+
+    th, td {
+        border: 1px solid red;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: green;
+    }
+
+    tr:nth-child(even) {
+        background-color: purple;
+    }
+`}</style>
+<table>
+	<thead>
+	<tr>
+		<th>Header 1</th>
+		<th>Header 2</th>
+		<th>Header 3</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Row 1, Cell 1</td>
+		<td>Row 1, Cell 2</td>
+		<td>Row 1, Cell 3</td>
+	</tr>
+	<tr>
+		<td>Row 2, Cell 1</td>
+		<td>Row 2, Cell 2</td>
+		<td>Row 2, Cell 3</td>
+	</tr>
+	<tr>
+		<td>Row 3, Cell 1</td>
+		<td>Row 3, Cell 2</td>
+		<td>Row 3, Cell 3</td>
+	</tr>
+	</tbody>
+</table>
+
+## Style Sheets
+
+You can also create a CSS file in the `public` folder and import it into your MDX file.
+
+```mdx
+// Colors divs with the custom class yellow
+// Note the use of the @ symbol to reference the public folder
+import '@/public/styles/custom-example.css';
+
+<div className="custom-class">
+		This div is styled using a custom CSS file.
+</div>
+```
+
+import '@/public/styles/custom-example.css'; // Colors divs with the custom class yellow
+
+<div className="custom-class">
+		This div is styled using a custom CSS file.
+</div>
+
+
+
+
+# Image
+
+Images are the same, drop them into the `/public/docs` folder and reference them using the `/docs/` prefix.
+
+## MDX
+
+```md
+![Image title](/docs/file.svg)
+```
+
+![Image title](/docs/file.svg)
+
+## HTML
+
+Or you can use HTML for more control. Remember to use double curly braces for style in JSX.
+
+```html
+<img src="/docs/file.svg" alt="Image title" style={{height: '30px', width: 'auto'}} />
+```
+
+<img src="/docs/file.svg" alt="Image title" style={{height: '30px', width: 'auto'}} />
+
+
 ## Alert ( Admonitions )
 
 ### Previous

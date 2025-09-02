@@ -21,6 +21,9 @@ This will be the fastest if you aren't on linux.
 
 ## Documentation 
 
-Navigation for the docs can be found in /app/docs/navigation.ts
+Navigation for the docs can be found in `/app/docs/navigation.ts`.
 
-If you add a page it needs to be added here as well
+The docs are found in `/docs/`, with their images found in `/public/docs/`.
+
+Refer to the admin docs for a [guide on writing documentation](https://badgercompute.wisc.edu/docs/admin-docs/) in this repository. If you need a custom component reach out 
+to the web staff. 
