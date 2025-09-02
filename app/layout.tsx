@@ -39,16 +39,6 @@ export default function RootLayout({
 						<Header />
 						{children}
             <Footer
-                menu={[]}
-                contact={{
-                  email: "chtc@cs.wisc.edu",
-                  social: {
-                    linkedin: "https://www.linkedin.com/company/center-for-high-throughput-computing/",
-                    instagram: "https://www.instagram.com/uw_chtc/",
-                    youtube: "https://www.youtube.com/channel/UCd1UBXmZIgB4p85t2tu-gLw",
-                    github: "https://github.com/CHTC",
-                  }
-                }}
                 accessibilityEmail={"chtc@cs.wisc.edu"}
             />
 						<LogoBar />
