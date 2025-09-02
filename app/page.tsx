@@ -72,7 +72,7 @@ export default function Home() {
 									Engage Your Research
 								</Typography>
 								<Typography variant="h5" gutterBottom>
-									Interactive Computing with Badger Compute
+									Interactive Computing with BadgerCompute
 								</Typography>
 								<Button
 									variant="contained"
@@ -103,56 +103,70 @@ export default function Home() {
       {/* Main Content Section */}
       <Container maxWidth="md" sx={{ mt: 8 }}>
         <Typography variant="h4" component="h2" gutterBottom>
-          About BadgerHub
+          What is BadgerCompute?
         </Typography>
         <Typography variant="body1" component="p" sx={{ mb: 2 }}>
-					BadgerHub provides a Jupyter-based interactive compute service for researchers at the University of Wisconsin-Madison.
+					BadgerCompute is a{' '}
+                  <a href="https://jupyter.org/" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
+                    Jupyter
+                  </a>
+                  -based interactive compute service for academic and research computing at the University of Wisconsin-Madison.
+                  Compute, visualize data, and write Jupyter notebooks without additional installation or leaving your laptop.
         </Typography>
         <Typography variant="body1" component="p">
-          Explore our features, join communities, and get started on your journey today!
+            Explore our{' '}
+                  <a href="/docs" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
+                    documentation
+                  </a>{' '}, join our{' '}
+                  <a href="https://community.badgercompute.wisc.edu/" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
+                    community
+                  </a>{' '}, and{' '}
+                  <a href="/get-started" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
+                    get started
+                  </a>!
         </Typography>
       </Container>
       {/* Use Cases Section */}
       <Container maxWidth="lg" sx={{ mt: 10, mb: 10 }}>
         <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontWeight: 700 }}>
-          Use Cases for BadgerHub
+          Use Cases for BadgerCompute
         </Typography>
         <Grid container spacing={4} justifyContent="center">
-          {/* Card 1: Code in Jupyter Notebook */}
+          {/* Card 1: Develop your code */}
 					<Grid size={{xs: 12, md: 4}}>
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
                 image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-code.png`}
-                alt="Code in Jupyter Notebook"
+                alt="Develop your code"
                 sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
               <CardContent>
                 <Typography variant="h6" component="h3" gutterBottom align="center">
-                  Code in Jupyter Notebook
+                  Develop your code
                 </Typography>
                 <Typography variant="body2" align="center">
-                  Use BadgerHub&apos;s Jupyter Notebooks to write and execute scripts in your preferred programming language.
+                  Use BadgerCompute&apos;s Jupyter Notebooks to develop and execute scripts in your preferred programming language.
                 </Typography>
               </CardContent>
             </Card>
           </Grid>
-          {/* Card 2: Compute in Jupyter Notebook */}
+          {/* Card 2: Compute and analyze */}
 					<Grid size={{xs: 12, md: 4}}>
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
                 image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-compute.png`}
-                alt="Compute in Jupyter Notebook"
+                alt="Compute and analyze"
                 sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
               <CardContent>
                 <Typography variant="h6" component="h3" gutterBottom align="center">
-                  Compute in Jupyter Notebook
+                  Compute and analyze
                 </Typography>
                 <Typography variant="body2" align="center">
-                  Execute scripts and run programs using standard software and Jupyter Notebooks.<br />
-                  Comes with integration with{' '}
+                  Execute scripts and programs using standard software.
+                  BadgerCompute integrates with with{' '}
                   <a href="https://mybinder.org/" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
                     Binder
                   </a>{' '}
@@ -161,18 +175,18 @@ export default function Home() {
               </CardContent>
             </Card>
           </Grid>
-          {/* Card 3: Interact in Jupyter Notebook */}
+          {/* Card 3: Interact with your data */}
           <Grid size={{xs: 12, md: 4}}>
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
                 image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-interact.png`}
-                alt="Interact in Jupyter Notebook"
+                alt="Interact with your data"
                 sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
               <CardContent>
                 <Typography variant="h6" component="h3" gutterBottom align="center">
-                  Interact in Jupyter Notebook
+                  Interact with your data
                 </Typography>
                 <Typography variant="body2" align="center">
                   Easily visualize and interact with data and plots using the Jupyter interface.
