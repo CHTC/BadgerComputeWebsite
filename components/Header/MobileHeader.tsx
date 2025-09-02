@@ -76,7 +76,7 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 							</ListItem>
 						</Box>
 						{pages.map((page) => (
-							<MobileNavigationItem page={page} />
+							<MobileNavigationItem key={page.path + page.label} page={page} />
 						))}
 					</List>
 					<Divider />
