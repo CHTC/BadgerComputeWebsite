@@ -20,7 +20,7 @@ export default async function Layout({
 			<>
 				<Container maxWidth="xl" sx={{py: 4}}>
 					<Grid container spacing={2} sx={{mb: 4}}>
-						<Grid size={2}>
+						<Grid size={{xs: 0, md: 2}} display={{xs: 'none', md: 'block'}}>
 							<DocumentationSidebar navigation={navigation} />
 						</Grid>
 					  <Grid size={10}>
