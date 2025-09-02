@@ -7,8 +7,10 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Link from "@mui/material/Link";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import CheckIcon from "@mui/icons-material/Check";
 import {NOTEBOOK_URL} from "@/app/config";
+import {useRouter} from "next/navigation";
 
 
 /**
@@ -18,6 +20,7 @@ const LaunchButton = ({children}: {children: ReactNode}) => {
 
 	const [open, setOpen] = React.useState(false);
 	const [skipCheck, setSkipCheck] = React.useState(false);
+	const router = useRouter()
 
 	useEffect(() => {
 		setSkipCheck(getSkipCheck());
@@ -55,15 +58,25 @@ const LaunchButton = ({children}: {children: ReactNode}) => {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={() => {
+					<Button color={"success"} variant={'outlined'} startIcon={<CheckIcon />} onClick={() => {
 						skipFutureCheck();
 						launchNotebooks()
-					}}>Course Is Complete</Button>
-					<Link href={'/get-started'}>
-						<Button autoFocus>
-							Take Me To The Course
-						</Button>
-					</Link>
+					}}>
+						Course Is Complete
+					</Button>
+					<Button
+						variant={'contained'}
+						startIcon={<AssignmentIcon />}
+						autoFocus
+						onClick={
+							() => {
+								setOpen(false);
+								router.push('/get-started');
+							}
+						}
+					>
+						Take Me To The Course
+					</Button>
 				</DialogActions>
 			</Dialog>
 		</>
