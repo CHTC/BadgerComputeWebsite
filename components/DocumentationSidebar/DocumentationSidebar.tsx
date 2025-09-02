@@ -52,7 +52,7 @@ function NavigationNode({ item, level }: { item: NavigationItem; level: number }
   }
 
   // Leaf node (link)
-	const href = `/${item.path?.replace(/\.mdx?$|\/index\.md$/, '') || ''}/`
+	const href = `${item.path?.replace(/\.mdx?$|\/index\.md$/, '') || ''}/`
 	const isActive = pathname === href
   return (
 		<Link href={href} underline="hover" color={isActive ? 'primary.main' : 'text.primary'} fontWeight={isActive ? 600 : 400}>

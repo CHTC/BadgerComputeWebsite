@@ -10,6 +10,7 @@ import "./globals.css"
 import {theme} from "./theme";
 import Header from "@/components/Header";
 import LogoBar from "@/components/LogoBar";
+import {navigation} from "@/app/docs/navigation";
 
 
 const rhd = Red_Hat_Display({
@@ -25,6 +26,16 @@ export const metadata: Metadata = {
 	metadataBase: new URL('https://badgercompute.chtc.chtc.io'),
 };
 
+const pages = [
+	{ label: 'Get Started', path: '/get-started' },
+	{ label: 'Policies', path: '/policies' },
+	{
+		label: 'Documentation',
+		path: '/docs',
+		children: navigation
+	}
+]
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,7 +47,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <Banner />
-						<Header />
+						<Header pages={pages} />
 						{children}
             <Footer
                 accessibilityEmail={"chtc@cs.wisc.edu"}

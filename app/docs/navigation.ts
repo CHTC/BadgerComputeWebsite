@@ -4,24 +4,24 @@ import type { NavigationItem } from "@/components/DocumentationSidebar";
 
 // You can update the navigation structure here.
 export const navigation: NavigationItem[] = [
-		{ label: "Introduction", path: "docs/hello-jupyter.md" },
+		{ label: "Introduction", path: "/docs/hello-jupyter.md" },
 		{
 			label: "Explore",
 			children: [
-				{ label: "Feature Showcase", path: "docs/showcase.md" },
-				{ label: "Example Use Cases", path: "docs/use-cases.md" }
+				{ label: "Feature Showcase", path: "/docs/showcase.md" },
+				{ label: "Example Use Cases", path: "/docs/use-cases.md" }
 			]
 		},
 		{
 			label: "Learn",
 			children: [
-				{ label: "Jupyter", path: "docs/jupyter.md" },
-				{ label: "Notebooks", path: "docs/notebooks.md" },
+				{ label: "Jupyter", path: "/docs/jupyter.md" },
+				{ label: "Notebooks", path: "/docs/notebooks.md" },
 				{
 					label: "Data",
-					path: "docs/data.md",
+					path: "/docs/data.md",
 					children: [
-						{ label: "Software", path: "docs/software.md" }
+						{ label: "Software", path: "/docs/software.md" }
 					]
 				}
 			]
@@ -29,9 +29,9 @@ export const navigation: NavigationItem[] = [
 		{
 			label: "Help",
 			children: [
-				{ label: "Log in to BadgerCompute", path: "docs/login.md" },
-				{ label: "Frequently Asked Questions", path: "docs/faqs.md" },
-				{ label: "Get Help", path: "docs/get-help.md" }
+				{ label: "Log in to BadgerCompute", path: "/docs/login.md" },
+				{ label: "Frequently Asked Questions", path: "/docs/faqs.md" },
+				{ label: "Get Help", path: "/docs/get-help.md" }
 			]
 		}
 ];
