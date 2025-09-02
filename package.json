@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -24,6 +25,7 @@
     "glob": "^11.0.3",
     "mdx": "link:@stefanprobst/rehype-extract-toc/mdx",
     "next": "15.5.0",
+    "next-sitemap": "^4.2.3",
     "raw-loader": "^4.0.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
