@@ -15,7 +15,7 @@ const LabeledIconButton = ({label, href, ...props}: LabeledIconButtonProps) => {
 	return (
 		<Link href={href}>
 			<Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
-				<IconButton {...props} sx={{...props.sx, mb: -1}}>
+				<IconButton {...props} sx={{...props.sx, mb: -1}} aria-label={label}>
 					{props.children}
 				</IconButton>
 				<Typography variant="caption" display="block" textAlign="center" sx={props.sx}>
