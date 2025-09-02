@@ -166,7 +166,7 @@ export default function Home() {
                 </Typography>
                 <Typography variant="body2" align="center">
                   Execute scripts and programs using standard software.
-                  BadgerCompute integrates with with{' '}
+                  BadgerCompute integrates with{' '}
                   <a href="https://mybinder.org/" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
                     Binder
                   </a>{' '}
