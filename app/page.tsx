@@ -52,8 +52,8 @@ export default function Home() {
           </Box>
         </Container>
       </Box>
-			<Box pl={1}>
-				<Typography variant={'subtitle2'}>
+			<Box pr={1}>
+				<Typography variant={'subtitle2'} align="right">
 					Messier 24 (infrared, red, green), Photo by Brandon Flores
 				</Typography>
 			</Box>
