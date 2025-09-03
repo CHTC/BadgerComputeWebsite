@@ -9,7 +9,6 @@ export default function Home() {
       <Box
         sx={{
           width: "100%",
-          height: { xs: "20vh" },
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
@@ -23,6 +22,7 @@ export default function Home() {
         <Container maxWidth="md">
           <Box
             sx={{
+							py: 8,
               zIndex: 2,
               width: "100%",
               display: "flex",
