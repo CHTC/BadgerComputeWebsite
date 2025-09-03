@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import {Close, Forum, Menu} from "@mui/icons-material";
 import Box from "@mui/material/Box";
 import LabeledIconButton from "@/components/LabeledIconButton";
-import {DISCOURSE_URL} from "@/app/config";
+import {DISCOURSE_URL, NOTEBOOK_URL} from "@/app/config";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -21,6 +21,7 @@ import Link from "@mui/material/Link"
 
 import Title from "@/components/Header/Title";
 import {NavigationItem} from "@/components/DocumentationSidebar";
+import {ListItemIcon} from "@mui/material";
 
 const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 
@@ -49,7 +50,7 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 				</Grid>
 				<Grid size={'auto'} display={{xs: 'none', sm: 'block'}}>
 					<Box display={"flex"} justifyContent={'right'} alignItems={'center'} gap={2}>
-						<LabeledIconButton label={"Discourse"} href={DISCOURSE_URL} sx={{color: "primary.contrastText"}}>
+						<LabeledIconButton label={"Community"} href={DISCOURSE_URL} sx={{color: "primary.contrastText"}}>
 							<Forum />
 						</LabeledIconButton>
 					</Box>
@@ -78,14 +79,11 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 						{pages.map((page) => (
 							<MobileNavigationItem key={page.path + page.label} page={page} />
 						))}
+						<MobileNavigationItem page={{label: "Community", path: DISCOURSE_URL, icon: <Forum />}} />
+						<MobileNavigationItem page={{label: "Notebook", path: NOTEBOOK_URL}} />
 					</List>
 					<Divider />
 					<List>
-						<ListItem disablePadding>
-							<ListItemButton component="a" href={DISCOURSE_URL}>
-								<ListItemText primary="Discourse" />
-							</ListItemButton>
-						</ListItem>
 					</List>
 				</Box>
 			</Drawer>

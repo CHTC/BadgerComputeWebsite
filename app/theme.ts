@@ -43,10 +43,6 @@ const theme = responsiveFontSizes(
 					fontFamily: rhd.style.fontFamily,
 					fontWeight: 700,
 				},
-				body1: {
-					fontSize: "1.2rem",
-					paddingBottom: "1rem",
-				},
 				fontFamily: [
 					rht.style.fontFamily,
 					"Helvetica Neue",

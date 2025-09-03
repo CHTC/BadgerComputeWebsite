@@ -5,6 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Banner, Footer } from "@/components/UW";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import {Red_Hat_Display, Red_Hat_Text} from "next/font/google";
+import { PlayArrow, Description, AssignmentTurnedIn } from '@mui/icons-material';
 
 import "./globals.css"
 import {theme} from "./theme";
@@ -27,11 +28,12 @@ export const metadata: Metadata = {
 };
 
 const pages = [
-	{ label: 'Get Started', path: '/get-started' },
-	{ label: 'Policies', path: '/policies' },
+	{ label: 'Get Started', path: '/get-started', icon: <PlayArrow /> },
+	{ label: 'Policies', path: '/policies', icon: <AssignmentTurnedIn /> },
 	{
 		label: 'Documentation',
 		path: '/docs',
+		icon: <Description />,
 		children: navigation
 	}
 ]
