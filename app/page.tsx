@@ -90,8 +90,8 @@ export default function Home() {
         </Typography>
         <Grid container spacing={4} justifyContent="center">
           {/* Card 1: Develop your code */}
-					<Grid size={{xs: 12, md: 4}}>
-            <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
+					<Grid size={{xs: 12, md: 4}} display={"flex"}>
+            <Card sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
                 image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-languages.svg`}
@@ -109,8 +109,8 @@ export default function Home() {
             </Card>
           </Grid>
           {/* Card 2: Compute and analyze */}
-					<Grid size={{xs: 12, md: 4}}>
-            <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
+					<Grid size={{xs: 12, md: 4}} display={"flex"}>
+            <Card sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
                 image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-compute.png`}
@@ -133,8 +133,8 @@ export default function Home() {
             </Card>
           </Grid>
           {/* Card 3: Interact with your data */}
-          <Grid size={{xs: 12, md: 4}}>
-            <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
+          <Grid size={{xs: 12, md: 4}} display={"flex"}>
+            <Card sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
                 image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-interact.png`}
