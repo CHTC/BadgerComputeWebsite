@@ -32,12 +32,9 @@ export default function Home() {
 				alignItems: "center",
 				justifyContent: "center",
 			}}>
-				<video
-					autoPlay
-					loop
-					muted
-					playsInline
-					style={{
+					<img
+          alt='Messier 24 (infrared, red, green), Photo by Brandon Flores'
+          style={{
 						position: "absolute",
 						top: 0,
 						left: 0,
@@ -46,8 +43,8 @@ export default function Home() {
 						objectFit: "cover",
 						zIndex: 1,
 					}}
-					src={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-video.webm`}
-				/>
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/Messier_24_(infrared,_red,_green).jpg`}
+          />
 				{/* Overlay Content */}
 
 				<Container maxWidth="md" sx={{ mt: 8 }}>
@@ -128,8 +125,8 @@ export default function Home() {
       </Container>
       {/* Use Cases Section */}
       <Container maxWidth="lg" sx={{ mt: 10, mb: 10 }}>
-        <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontWeight: 700 }}>
-          Use Cases for BadgerCompute
+        <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ mb: '1em', fontWeight: 700 }}>
+          Power your research with BadgerCompute
         </Typography>
         <Grid container spacing={4} justifyContent="center">
           {/* Card 1: Develop your code */}
@@ -137,7 +134,7 @@ export default function Home() {
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
                 component="img"
-                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-code.png`}
+                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-languages.svg`}
                 alt="Develop your code"
                 sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
@@ -146,7 +143,7 @@ export default function Home() {
                   Develop your code
                 </Typography>
                 <Typography variant="body2" align="center">
-                  Use BadgerCompute&apos;s Jupyter Notebooks to develop and execute scripts in your preferred programming language.
+                  Develop code and scripts for research in your preferred programming language on BadgerCompute's Jupyter notebooks.
                 </Typography>
               </CardContent>
             </Card>
@@ -166,7 +163,7 @@ export default function Home() {
                 </Typography>
                 <Typography variant="body2" align="center">
                   Execute scripts and programs using standard software.
-                  BadgerCompute integrates with{' '}
+                  BadgerCompute also integrates with{' '}
                   <a href="https://mybinder.org/" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
                     Binder
                   </a>{' '}
@@ -189,7 +186,8 @@ export default function Home() {
                   Interact with your data
                 </Typography>
                 <Typography variant="body2" align="center">
-                  Easily visualize and interact with data and plots using the Jupyter interface.
+                  Explore, visualize, and interact with data and plots directly in your notebook,
+                  using your code, Markdown, and Jupyter's Interact widget.
                 </Typography>
               </CardContent>
             </Card>
