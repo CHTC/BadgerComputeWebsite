@@ -9,7 +9,7 @@ import {navigation} from "./navigation";
 
 export const metadata: Metadata = {
 	title: "Documentation",
-	description: "BadgerHub documentation and tutorials",
+	description: "BadgerCompute documentation and tutorials",
 };
 
 export default async function Layout({
