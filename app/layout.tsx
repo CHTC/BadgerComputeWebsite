@@ -50,7 +50,7 @@ export default function RootLayout({
 						<Header pages={pages} />
 						{children}
             <Footer
-                accessibilityEmail={"chtc@cs.wisc.edu"}
+                accessibilityEmail={"badger.compute@wisc.edu"}
             />
 						<LogoBar />
           </ThemeProvider>
