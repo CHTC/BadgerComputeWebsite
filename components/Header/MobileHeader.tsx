@@ -80,7 +80,7 @@ const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 							<MobileNavigationItem key={page.path + page.label} page={page} />
 						))}
 						<MobileNavigationItem page={{label: "Community", path: DISCOURSE_URL, icon: <Forum />}} />
-						<MobileNavigationItem page={{label: "Notebook", path: NOTEBOOK_URL}} />
+						<MobileNavigationItem page={{label: "Launch Notebook", path: NOTEBOOK_URL}} />
 					</List>
 					<Divider />
 					<List>
