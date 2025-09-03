@@ -16,10 +16,10 @@ export async function generateMetadata(
 
 	return {
 		title: frontmatter?.title || 'Documentation',
-		description: frontmatter?.description || 'BadgerHub documentation and tutorials',
+		description: frontmatter?.description || 'BadgerCompute documentation and tutorials',
 		openGraph: {
 			title: frontmatter?.title || 'Documentation',
-			description: frontmatter?.description || 'BadgerHub documentation and tutorials',
+			description: frontmatter?.description || 'BadgerCompute documentation and tutorials',
 		}
 	}
 }

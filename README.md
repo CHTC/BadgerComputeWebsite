@@ -1,4 +1,4 @@
-# BadgerHub
+# BadgerCompute
 
 View what version is deployed here: https://badgercompute.wisc.edu/.ArtifactServer/metadata.json
 

@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 
 export const metadata: Metadata = {
 	title: "Policies",
-	description: "BadgerHub policies and guidelines",
+	description: "BadgerCompute policies and guidelines",
 };
 
 export default function Layout({

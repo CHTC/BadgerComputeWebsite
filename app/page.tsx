@@ -103,10 +103,10 @@ export default function Home() {
       {/* Main Content Section */}
       <Container maxWidth="md" sx={{ mt: 8 }}>
         <Typography variant="h4" component="h2" gutterBottom>
-          About BadgerHub
+          About BadgerCompute
         </Typography>
         <Typography variant="body1" component="p" sx={{ mb: 2 }}>
-					BadgerHub provides a Jupyter-based interactive compute service for researchers at the University of Wisconsin-Madison.
+					BadgerCompute provides a Jupyter-based interactive compute service for researchers at the University of Wisconsin-Madison.
         </Typography>
         <Typography variant="body1" component="p">
           Explore our features, join communities, and get started on your journey today!
@@ -115,7 +115,7 @@ export default function Home() {
       {/* Use Cases Section */}
       <Container maxWidth="lg" sx={{ mt: 10, mb: 10 }}>
         <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontWeight: 700 }}>
-          Use Cases for BadgerHub
+          Use Cases for BadgerCompute
         </Typography>
         <Grid container spacing={4} justifyContent="center">
           {/* Card 1: Code in Jupyter Notebook */}
@@ -132,7 +132,7 @@ export default function Home() {
                   Code in Jupyter Notebook
                 </Typography>
                 <Typography variant="body2" align="center">
-                  Use BadgerHub&apos;s Jupyter Notebooks to write and execute scripts in your preferred programming language.
+                  Use BadgerCompute&apos;s Jupyter Notebooks to write and execute scripts in your preferred programming language.
                 </Typography>
               </CardContent>
             </Card>

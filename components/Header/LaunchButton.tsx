@@ -54,7 +54,7 @@ const LaunchButton = ({children}: {children: ReactNode}) => {
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText id="alert-dialog-description">
-						Use of BadgerHub requires completion of the associated Canvas course.
+						Use of BadgerCompute requires completion of the associated Canvas course.
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
