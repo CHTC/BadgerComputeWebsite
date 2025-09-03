@@ -103,7 +103,7 @@ export default function Home() {
                   Develop your code
                 </Typography>
                 <Typography variant="body2" align="center">
-                  Develop code and scripts for research in your preferred programming language on BadgerCompute's Jupyter notebooks.
+                  Develop code and scripts for research in your preferred programming language on BadgerCompute&apos;s Jupyter notebooks.
                 </Typography>
               </CardContent>
             </Card>
@@ -147,7 +147,7 @@ export default function Home() {
                 </Typography>
                 <Typography variant="body2" align="center">
                   Explore, visualize, and interact with data and plots directly in your notebook,
-                  using your code, Markdown, and Jupyter's Interact widget.
+                  using your code, Markdown, and Jupyter&apos;s Interact widget.
                 </Typography>
               </CardContent>
             </Card>
