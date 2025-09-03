@@ -2,100 +2,62 @@
 
 import { Box, Typography, Button, Container, Fade, Card, CardMedia, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { useEffect, useRef, useState } from "react";
-
 export default function Home() {
-  const [showOverlay, setShowOverlay] = useState(false);
-  const overlayRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!overlayRef.current) return;
-      const rect = overlayRef.current.getBoundingClientRect();
-      setShowOverlay(rect.top < window.innerHeight * 0.7);
-    };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
 
-    <Box sx={{ minHeight: "200vh", bgcolor: "background.default" }}>
+    <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
       {/* Video Background Section */}
-			<Box sx={{
-				position: "relative",
-				width: "100%",
-				height: { xs: "60vh", md: "80vh" },
-				overflow: "hidden",
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "center",
-			}}>
-					<img
-          alt='Messier 24 (infrared, red, green), Photo by Brandon Flores'
-          style={{
-						position: "absolute",
-						top: 0,
-						left: 0,
-						width: "100%",
-						height: "100%",
-						objectFit: "cover",
-						zIndex: 1,
-					}}
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/Messier_24_(infrared,_red,_green).jpg`}
-          />
-				{/* Overlay Content */}
-
-				<Container maxWidth="md" sx={{ mt: 8 }}>
-					<Box
-						ref={overlayRef}
-						sx={{
-							position: "relative",
-							zIndex: 2,
-							width: "100%",
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "center",
-							justifyContent: "center",
-							height: { xs: "60vh", md: "80vh" },
-							color: "common.white",
-							textShadow: "0 2px 8px rgba(0,0,0,0.7)",
-						}}
-					>
-						<Fade in={showOverlay} timeout={1000}>
-							<Box>
-								<Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
-									Engage Your Research
-								</Typography>
-								<Typography variant="h5" gutterBottom>
-									Interactive Computing with BadgerCompute
-								</Typography>
-								<Button
-									variant="contained"
-									color="primary"
-									size="large"
-									sx={{ mt: 3 }}
-									href="/get-started"
-								>
-									Get Started
-								</Button>
-							</Box>
-						</Fade>
-					</Box>
-					{/* Overlay gradient for readability */}
-					<Box
-						sx={{
-							position: "absolute",
-							top: 0,
-							left: 0,
-							width: "100%",
-							height: "100%",
-							background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.7) 100%)",
-							zIndex: 1,
-						}}
-					/>
-				</Container>
+      <Box
+        sx={{
+          width: "100%",
+          height: { xs: "20vh" },
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('${process.env.NEXT_PUBLIC_BASE_PATH}/website/Messier_24_(infrared,_red,_green).jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+					backdropFilter: "brightness(40%)",
+        }}
+      >
+        {/* Overlay Content */}
+        <Container maxWidth="md">
+          <Box
+            sx={{
+              zIndex: 2,
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              color: "common.white",
+              textShadow: "0 2px 8px rgba(0,0,0,0.7)",
+            }}
+          >
+						<Box>
+							<Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
+								Engage Your Research
+							</Typography>
+							<Typography variant="h5" gutterBottom>
+								Interactive Computing with BadgerCompute
+							</Typography>
+							<Button
+								variant="contained"
+								color="primary"
+								size="large"
+								sx={{ mt: 3 }}
+								href="/get-started"
+							>
+								Get Started
+							</Button>
+						</Box>
+          </Box>
+        </Container>
+      </Box>
+			<Box pl={1}>
+				<Typography variant={'subtitle2'}>
+					Messier 24 (infrared, red, green), Photo by Brandon Flores
+				</Typography>
 			</Box>
       {/* Main Content Section */}
       <Container maxWidth="md" sx={{ mt: 8 }}>
@@ -191,6 +153,29 @@ export default function Home() {
                 </Typography>
               </CardContent>
             </Card>
+          </Grid>
+        </Grid>
+      </Container>
+			{/* Access BadgerCompute Section */}
+      <Container maxWidth="lg" sx={{ mb: 10 }}>
+        <Grid container spacing={4} alignItems="center">
+          <Grid size={{xs: 12, md: 5}}>
+            <Typography variant="h4" component="h2" gutterBottom>
+              Access BadgerCompute through your browser
+            </Typography>
+            <Typography variant="body1">
+              No extra downloads or installations are needed to access BadgerCompute. Launch BadgerCompute right from your browser.
+            </Typography>
+          </Grid>
+          <Grid size={{xs: 12, md: 7}}>
+            <video
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-video.mp4`}
+              autoPlay
+							loop
+							muted
+							playsInline
+              style={{ width: "100%", borderRadius: "8px" }}
+            />
           </Grid>
         </Grid>
       </Container>
