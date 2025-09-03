@@ -14,7 +14,7 @@ function TOCList({ entries }: TableOfContentsProps ) {
     <List disablePadding>
       {entries.map((entry) => (
         <React.Fragment key={entry.id || entry.value}>
-          <ListItem sx={{ pl: (entry.depth - 1) * 2 }} disableGutters>
+          <ListItem sx={{ pl: (entry.depth - 2) * 2 }} disableGutters>
             {entry.id &&
               <Link href={`#${entry.id}`} underline="hover" color="inherit">
 								{entry.value}
