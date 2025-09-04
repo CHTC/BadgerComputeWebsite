@@ -1,7 +1,7 @@
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 
-# Getting Started with BadgerCompute (UW–Madison JupyterHub)
+# Guided Intro to Using BadgerCompute (UW–Madison JupyterHub)
 
 Welcome! This short, hands-on intro will get you running on **BadgerCompute**, UW–Madison’s JupyterHub service. You’ll:
 
@@ -10,44 +10,48 @@ Welcome! This short, hands-on intro will get you running on **BadgerCompute**, U
 3) Run a toy analysis in Python (pandas + matplotlib)  
 4) Learn how to save, shut down, and log out
 
----
+<br>
 
-## 0) Prerequisites
+## Prerequisites
 
 - A UW NetID and access to **BadgerCompute** (JupyterHub).
 - A modern web browser (Chrome/Firefox/Safari).
 - No local installs required—everything runs in the cloud.
 
----
+<br>
 
-## 1) Log in and choose the Basic Data Science environment
+## Log in and choose the Basic Data Science environment
 
-1. Go to the BadgerCompute JupyterHub.
-[launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu)
+1. Go to the BadgerCompute JupyterHub. <Link href={NOTEBOOK_URL}><Button variant={'outlined'} size="small" endIcon={<RocketLaunchIcon />}>Launch Notebook</Button></Link>
 2. Log in with your UW credentials and accept the Terms if prompted.
-3. On the **Spawner** page, choose the **Image**:
-   - **Image:** `Basic Data Science` (includes libraries from the Python, R, and Julia communities)
-4. Click **Start** (or **Spawn**). You’ll land in **JupyterLab**.
+3. On the **Server Option** page, choose the **Environment**:
+   - **Environment:** `Basic Data Science (includes libraries from the Python, R, and Julia communities)`
+4. Click **Start**. You’ll land in **JupyterLab**.
 
 <Alert severity="warning" sx={{ mb: 3 }}>
   <AlertTitle>This may take a few minutes</AlertTitle>
   Wait patiently while your server starts. If it takes more than 10 minutes, try refreshing the page or logging out and back in. Wait times may be longer during peak usage periods.
 </Alert>
 
----
+<br>
 
-## 2) Orient yourself in JupyterLab
+## Familiarize yourself with JupyterLab's Interface
 
 - **File Browser** (left sidebar): navigate folders, upload/download files.
 - **Launcher** (main area): create new Notebooks/Terminals/Text files.
 - **Kernel**: the compute engine for your notebook (e.g., Python 3).
 - **Tabs**: notebooks and terminals open as tabs across the top.
 
-**TODO: Add screenshot of JupyterLab interface with annotations**
+![Jupyter Interface](/docs/guided-intro-to-badgercompute/jyputerlab-interface.png)
 
----
+<Alert severity="info" sx={{ mb: 3 }}>
+  <AlertTitle>Notebook vs Console</AlertTitle>
+  When you open a **Notebook**, it runs code in cells and shows outputs inline. A **Terminal** is a command-line interface for running shell commands. You can use either depending on your task. Notebooks are a great way to combine code, results, and narrative text for data analysis. You can write and execute code in cells, see outputs immediately, and document your workflow with Markdown.
+</Alert>
 
-## 3) Create a workspace folder (optional but recommended)
+<br>
+
+## Create a workspace folder (optional but recommended)
 
 Let’s keep this tidy:
 
@@ -61,9 +65,9 @@ Let’s keep this tidy:
   Your `/work` directory is the only top-level directory which offers persistent storage. Files kept here will remain available across sessions for up to 30 days after your last login. Files in other directories may be deleted when your server stops.
 </Alert>
 
----
+<br>
 
-## 4) Download a notebook + dataset with `wget`
+## Download a notebook + dataset with `wget`
 
 We’ll pull:
 - A small example **Jupyter notebook** (from a public repository)
@@ -96,8 +100,6 @@ In any Python notebook cell, you can prefix shell commands with !:
 
 ```python
 import os
-os.makedirs("badgercompute_intro", exist_ok=True)
-os.chdir("badgercompute_intro")
 
 !wget -O getting_started.ipynb \
   https://raw.githubusercontent.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb
@@ -119,10 +121,10 @@ os.chdir("badgercompute_intro")
 	You should also be able to see the files in the __File Browser__. If you don&#39;t, click the refresh icon on the __File Browser__.
 </Alert>
 
-## 5) Open the downloaded notebook (optional exploration)
+## Open the downloaded notebook (optional exploration)
 
 In the File Browser, double-click getting_started.ipynb.
-Skim a few cells to see Markdown, code cells, and keyboard shortcuts.
+Skim a few cells to see Markdown, code cells, and keyboard shortcuts. This notebook is a great resource to learn more about Jupyter notebooks and basic python. The notebook was created by the [Reproducible Science Curriculum](https://github.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter) team.
 
 <Alert severity="info" sx={{ mb: 3 }}>
 	<AlertTitle>Keyboard tips</AlertTitle>
@@ -133,7 +135,7 @@ Skim a few cells to see Markdown, code cells, and keyboard shortcuts.
 	- **b**\: insert cell below
 </Alert>
 
-## 6) Create your own toy notebook
+## Create your own toy notebook
 
 Now let’s make a new notebook and do a tiny analysis in the BadgerCompute environment:
 
@@ -146,70 +148,111 @@ Save it right away as `toy_penguins_analysis.ipynb` inside `badgercompute_intro/
 
 <Alert>
 	<AlertTitle>Saving</AlertTitle>
-	You can also save with ++cmd+s++ or File → Save Notebook.
+	You can also save with cmd+s (command+s on mac) or File → Save Notebook.
 </Alert>
 
+### Using Markdown in Your Notebook
 
-### 6.1) Import libraries and load data
+You can add text cells using Markdown to explain your analysis. Here’s a quick example of Markdown syntax:
+
+```markdown
+# Meet the Penguins
+
+For this toy tutorial, we will use the [Palmer Penguin dataset](). The dataset was collected by [Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station Antarctica Long Term Ecological Research Network](https://pallter.marine.rutgers.edu/).
+![Artwork of a Chinstrap, Gentoo, and Adelie Penguin - Artwork by @allison_horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+
+Artwork by @allison_horst
+```
+
+To convert a cell to Markdown, press `esc` then `m` or select `Code` on the Notebook menu and select `Markdown`. To edit the cell, double-click it. To render the Markdown, press `shift+enter`.
+
+![Changing a Cell Type to Markdown](/docs/guided-intro-to-badgercompute/markdown-in-notebook.png)
+
+### Import libraries and load data
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load the CSV we downloaded
-df = pd.read_csv("penguins.csv")
-df.head()
+penguins = pd.read_csv("penguins.csv")
+penguins.head()
 ```
 
-### 6.2) Inspect and clean
+### Inspect and clean
 
 ```python
 # Quick shape and columns
-df.shape, df.columns.tolist()
+penguins.shape, df.columns.tolist()
 ```
 
 ```python
 # Basic info and missing values
-df.info()
-df.isna().sum()
+penguins.info()
+penguins.isna().sum()
 ```
 
 ```python
 # Drop rows missing core numeric measurements to simplify this toy example
-clean = df.dropna(subset=["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"])
-clean.shape
+clean_penguins = df.dropna(subset=["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"])
+clean_penguins.shape
 ```
-### 6.3) Simple stats and grouping
+### Simple stats and grouping
 
 ```python
 # Average bill length per species
-clean.groupby("species")["bill_length_mm"].mean().round(2)
+clean_penguins.groupby("species")["bill_length_mm"].mean().round(2)
 ```
 
 ```python
 # Average body mass by species & sex
-clean.groupby(["species", "sex"])["body_mass_g"].mean().round(1).unstack()
+clean_penguins.groupby(["species", "sex"])["body_mass_g"].mean().round(1).unstack()
 ```
 
-### 6.4) A quick plot (matplotlib)
+### A quick plot (matplotlib)
 
 ```python
 # Scatter: bill length vs. bill depth
-ax = clean.plot.scatter(x="bill_length_mm", y="bill_depth_mm", title="Penguins: Bill Measurements")
+ax = clean_penguins.plot.scatter(x="bill_length_mm", y="bill_depth_mm", title="Penguins: Bill Measurements")
 plt.show()
 ```
 
 ```python
 # Histogram of flipper lengths
-ax = clean["flipper_length_mm"].plot.hist(bins=20, title="Penguins: Flipper Length Distribution")
+ax = clean_penguins["flipper_length_mm"].plot.hist(bins=20, title="Penguins: Flipper Length Distribution")
 plt.xlabel("flipper_length_mm")
 plt.show()
 ```
+
+### Compare between species
+
+```python
+# --------------------------------------------
+# Bill length vs. depth with regression lines
+# --------------------------------------------
+plt.figure(figsize=(8,6))
+
+sns.lmplot(
+    data=penguins,
+    x="bill_length_mm",
+    y="bill_depth_mm",
+    hue="species",
+    palette=["darkorange", "purple", "#008B8B"],  # fixed
+    height=6, aspect=1.2
+)
+plt.title("Penguin bill dimensions with regression lines")
+plt.show()
+```
+
+Your output plot should look something like this:
+![Jupyter Interface](/docs/guided-intro-to-badgercompute/penguin-plot.png)
+
 
 <Alert severity="info" sx={{ mb: 3 }}>
   If plots don’t render, ensure the cell runs without errors and your kernel is Python 3.
 </Alert>
 
-## 7) Annotate your notebook
+## Annotate your notebook
 
 Jupyter notebooks are great for mixing code, results, and narrative text. This makes them ideal for sharing and reproducible research. You can add Markdown cells to explain your steps. 
 
@@ -230,14 +273,14 @@ Double-click a cell to edit it, then change its type to Markdown (++esc++ then +
 
 You can also add images, LaTeX math, and more. See the [Jupyter Markdown Guide](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) for details.
 
-## 8) Save, restart, and export
+## Save, restart, and export
 
 * **Save**: File → Save Notebook (or ++ctrl+cmd+s++)
 * **Restart Kernel**: Kernel → Restart Kernel (useful if things get “stuck”)
 * **Shutdown**: In the **File Browser**, right-click the notebook → **Shut Down Kernel**. This will free up resources.
 * **Export**: File → Save and Export Notebook As… (e.g., HTML)
 
-## 9) File persistence and best practices
+## File persistence and best practices
 
 * Your files typically persist across sessions in your home space on BadgerCompute.
   * Keep work organized in folders (`badgercompute_intro`, project1, etc.).
@@ -245,7 +288,7 @@ You can also add images, LaTeX math, and more. See the [Jupyter Markdown Guide](
   * Clone a repo in a Terminal: git clone `https://github.com/your/repo.git`
   * Commit regularly; push to GitHub for off-platform backup.
 
-## 10) Shut down and log out
+## Shut down and log out
 
 * Close notebooks or shut down their kernels from the **Running Terminals and Kernels** panel (left sidebar → “Running” tab).
 * From the top right of JupyterLab, click your user menu → **Log Out** (or return to the Hub control panel and choose **Stop My Server** if visible).
