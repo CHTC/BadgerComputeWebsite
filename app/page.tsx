@@ -44,7 +44,7 @@ export default function Home() {
 								color="primary"
 								size="large"
 								sx={{ mt: 3 }}
-								href="/get-started"
+								href="/docs/hello-jupyter/"
 							>
 								Get Started
 							</Button>
@@ -78,7 +78,7 @@ export default function Home() {
                   <a href="https://community.badgercompute.wisc.edu/" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
                     community
                   </a>{' '}, and{' '}
-                  <a href="/get-started" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
+                  <a href="/docs/hello-jupyter/" target="_blank" rel="noopener noreferrer" style={{ color: '#1976d2', textDecoration: 'underline' }}>
                     get started
                   </a>!
         </Typography>

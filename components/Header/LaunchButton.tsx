@@ -73,7 +73,7 @@ const LaunchButton = ({children}: {children: ReactNode}) => {
 						onClick={
 							() => {
 								setOpen(false);
-								router.push('/get-started');
+								router.push('/docs/hello-jupyter/');
 							}
 						}
 					>
