@@ -9,7 +9,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import CheckIcon from "@mui/icons-material/Check";
-import RocketIcon from "@mui/icons-material/Rocket";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import {NOTEBOOK_URL} from "@/app/config";
 import {useRouter} from "next/navigation";
 
@@ -41,7 +41,7 @@ const LaunchButton = ({children}: {children: ReactNode}) => {
 					variant={"outlined"}
 					// @ts-expect-error Colors must be broken because this works just fine and is more extensible than hardcoding a color
 					color={"primary.contrastText"}
-					endIcon={<RocketIcon />}
+					endIcon={<RocketLaunchIcon />}
 			>
 				{children}
 			</Button>
