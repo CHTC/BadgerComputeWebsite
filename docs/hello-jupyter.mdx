@@ -1,32 +1,35 @@
 import Alert from "@mui/material/Alert";
+import AlertDropDown from "@/components/AlertDropDown";
 import AlertTitle from "@mui/material/AlertTitle";
 import Button from "@mui/material/Button";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import Link from "@mui/material/Link";
 import {NOTEBOOK_URL} from "../app/config";
 
-# Guided Intro to Using BadgerCompute (UW–Madison JupyterHub)
+# Guided Intro to Using BadgerCompute
 
 Welcome! This short, hands-on intro will get you running on **BadgerCompute**, UW–Madison’s JupyterHub service. You’ll:
 
 1) Launch JupyterLab using the **Basic Data Science** container  
-2) Download (`wget`) a ready-made notebook and a small dataset  
-3) Run a toy analysis in Python (pandas + matplotlib)  
-4) Learn how to save, shut down, and log out
+2) Download a ready-made notebook and a small dataset  
+3) Run a toy analysis in Python using pandas and matplotlib
+4) Save your work, shut down, and log out
 
 ## Prerequisites
 
-- A UW NetID and access to **BadgerCompute** (JupyterHub).
-- A modern web browser (Chrome/Firefox/Safari).
-- No local installs required—everything runs in the cloud.
+No local installs are required—everything runs in the cloud!
+This introduction assumes that
 
-## Log in and choose the Basic Data Science environment
+- You have an active UW-Madison NetID
+- You have passed the [BadgerCompute Certifcation Course](/get-started#take-the-canvas-course) and have waited 24 hours
+- You are using a modern web browser (Chrome/Firefox/Safari)
 
-1. Go to the BadgerCompute JupyterHub. <Link href={NOTEBOOK_URL}><Button variant={'outlined'} size="small" endIcon={<RocketLaunchIcon />}>Launch Notebook</Button></Link>
+## Log in and choose the notebook environment
+
+1. Launch the BadgerCompute notebook service. <Link href={NOTEBOOK_URL}><Button variant={'outlined'} size="small" endIcon={<RocketLaunchIcon />}>Launch Notebook</Button></Link>
 2. Log in with your UW credentials and accept the Terms if prompted.
-3. On the **Server Option** page, choose the **Environment**:
-   - **Environment:** `Basic Data Science (includes libraries from the Python, R, and Julia communities)`
-4. Click **Start**. You’ll land in **JupyterLab**.
+3. On the "Server Option" page, choose the environment **Basic Data Science**.
+4. Click the **Start** button to launch the notebook using that environment.
 
 <Alert severity="warning" sx={{ mb: 3 }}>
   <AlertTitle>This may take a few minutes</AlertTitle>
@@ -35,19 +38,26 @@ Welcome! This short, hands-on intro will get you running on **BadgerCompute**, U
 
 ## Familiarize yourself with JupyterLab's Interface
 
-- **File Browser** (left sidebar): navigate folders, upload/download files.
-- **Launcher** (main area): create new Notebooks/Terminals/Text files.
-- **Kernel**: the compute engine for your notebook (e.g., Python 3).
-- **Tabs**: notebooks and terminals open as tabs across the top.
+When notebook environment loads, you'll see the following components:
 
-![Jupyter Interface](/docs/guided-intro-to-badgercompute/jyputerlab-interface.png)
+1. **File Browser** (left sidebar): navigate folders, upload/download files.
+2. **Launcher** (main area): create new Notebooks/Terminals/Text files.
+3. **Notebook Apps**: Open a notebook 
+4. **Console Apps**: Open an interactive console 
+5. **Other Apps**: Open a terminal or other interface
 
-<Alert severity="info" sx={{ mb: 3 }}>
-  <AlertTitle>Notebook vs Console</AlertTitle>
-  When you open a **Notebook**, it runs code in cells and shows outputs inline. A **Terminal** is a command-line interface for running shell commands. You can use either depending on your task. Notebooks are a great way to combine code, results, and narrative text for data analysis. You can write and execute code in cells, see outputs immediately, and document your workflow with Markdown.
-</Alert>
+![Jupyter Interface](/docs/guided-intro-to-badgercompute/jupyterlab-interface.png)
 
-## Create a workspace folder (optional but recommended)
+<AlertDropDown severity="info" sx={{ mb: 3 }} title="Notebook vs Console vs Terminal">
+* A **Notebook** is a living document for your code, where you can write text alongside your actual code.
+* A **Console** is an interactive mode for entering commands in a particular programming language and provides a variety of enhancements, such as auto-complete suggestions and help text.
+* A **Terminal** is also an interactive mode for running commands but without the enhancements of the Console, which means it can run faster than the Console.
+
+For reproducible work, most people use the Notebook because it allows you to save everything - the commands, the output, the instructions - as a single standalone file.
+The Console is good for testing and developing specific code, and the Terminal is good for running quick commands, but neither can easily save the work.
+</AlertDropDown>
+
+## Create a workspace folder 
 
 Let’s keep this tidy:
 
@@ -56,113 +66,143 @@ Let’s keep this tidy:
 3. Name it: `badgercompute_intro`
 4. Double-click to enter that folder.
 
-<Alert severity="info" sx={{ mb: 3 }}>
+<Alert severity="warning" sx={{ mb: 3 }}>
   <AlertTitle>Persistent storage</AlertTitle>
-  Your `/work` directory is the only top-level directory which offers persistent storage. Files kept here will remain available across sessions for up to 30 days after your last login. Files in other directories may be deleted when your server stops.
+Your `/work` directory is the only top-level directory which offers persistent storage. 
+**Only the contents of the `/work` directory are kept between notebook sessions!**
+
+Be sure to read the BadgerCompute [data policies](/policies#data-retention-policy).
 </Alert>
 
-## Download a notebook + dataset with `wget`
+## Download a notebook and dataset
 
-We’ll pull:
-- A small example **Jupyter notebook** (from a public repository)
-- The **Palmer Penguins** dataset (CSV) for a quick analysis
+Next, you'll be guided on how to download:
 
-You can do this either from a **Terminal** or **inside a notebook**.
+- An example notebook from a public repository
+- The "Palmer Penguins" dataset 
+
+You can do this using either a Terminal or a Notebook.
 
 ### Option A: Use a Terminal
-1. From the **Launcher**, click **Terminal** in the **Other** section of the Launcher.
-2. Run:
 
-```bash
-# Move into your workspace folder (adjust if your folder name differs)
-cd ~/work/badgercompute_intro
+1. From the **Launcher**, under the **Other** section, click the **Terminal** app.
+2. Make sure you are in right folder by running this command:
 
-# Download a ready-made notebook (rename it locally for convenience)
-wget -O getting_started.ipynb \
-  https://raw.githubusercontent.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb
+    ```bash
+    cd ~/work/badgercompute_intro
+    ```
 
-# Download the Palmer Penguins dataset (CSV)
-wget -O penguins.csv \
-  https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv
+3. Download the example notebook by running this command:
 
-# Verify files
-ls -lh
-```
-### Option B: Use !wget inside a Notebook
+    ```bash
+    wget -O getting_started.ipynb https://raw.githubusercontent.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb
+    ```
 
-In any Python notebook cell, you can prefix shell commands with !:
+    After the command finishes running, you should see the new `getting_started.ipynb` file in your file browser pane on the lefthand side (you may need to refresh the pane).
 
-```python
-import os
+4. Similarly, download the "Palmer Penguins" dataset by running
 
-!wget -O getting_started.ipynb \
-  https://raw.githubusercontent.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb
+    ```bash
+    wget -O penguins.csv https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv
+    ```
+    
+    A new `penguins.csv` file should appear in your directory.
 
-!wget -O penguins.csv \
-  https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv
+5. You can confirm the files exist by listing the contents of the current directory with this command:
 
-!ls -lh
-```
+    ```bash
+    ls -lh
+    ```
 
-<Alert severity="info" sx={{ mb: 3 }}>
-	<AlertTitle>Note</AlertTitle>
-	If you don&#39;t see the files, ensure you&#39;re in the correct folder. The current working directory for the Terminal is shown by `pwd`.
-	Inside Python, try:
-	```python
-	import os
-	print(os.getcwd())
-	```
-	You should also be able to see the files in the __File Browser__. If you don&#39;t, click the refresh icon on the __File Browser__.
-</Alert>
+### Option B: Use a Notebook
 
-## Open the downloaded notebook (optional exploration)
+1. From the **Launcher**, under the **Notebook** section, click the **Python** app.
 
-In the File Browser, double-click getting_started.ipynb.
-Skim a few cells to see Markdown, code cells, and keyboard shortcuts. This notebook is a great resource to learn more about Jupyter notebooks and basic python. The notebook was created by the [Reproducible Science Curriculum](https://github.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter) team.
+2. Download the example notebook by pasting this command into the notebook cell, then running it using the Shift+Enter keyboard shortcut:
 
-<Alert severity="info" sx={{ mb: 3 }}>
-	<AlertTitle>Keyboard tips</AlertTitle>
-	- **shift+enter**\: run a cell
-	- **esc** then **m**\: change a cell to Markdown
-	- **esc** then **y**\: change a cell to Code
-	- **a**\: insert above
-	- **b**\: insert cell below
-</Alert>
+    ```python
+    !wget -O getting_started.ipynb https://raw.githubusercontent.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb
+    ```
 
-## Create your own toy notebook
+    After the command finishes running, you should see the new `getting_started.ipynb` file in your file browser pane on the lefthand side (you may need to refresh the pane).
 
-Now let’s make a new notebook and do a tiny analysis in the BadgerCompute environment:
+    > The `!` at the start of the command is required to run a non-Python command inside of the Python notebook.
 
-Go back to the **Launcher** (click the “+” icon at top left if needed).
+3. Similarly, download the "Palmer Penguins" dataset by running
 
-Under **Notebook**, choose Python 3 (or similar).
+    ```python
+    !wget -O penguins.csv https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv
+    ```
+    
+    A new `penguins.csv` file should appear in your directory.
 
-Save it right away as `toy_penguins_analysis.ipynb` inside `badgercompute_intro/`.
+4. You can confirm the files exist by listing the contents of the current directory with this command:
 
+    ```python
+    !ls -lh
+    ```
 
-<Alert>
-	<AlertTitle>Saving</AlertTitle>
-	You can also save with cmd+s (command+s on mac) or File → Save Notebook.
-</Alert>
+## Open the downloaded notebook
+
+In the File Browser, double-click the file `getting_started.ipynb` to open it.
+
+We highly encourage your to read through the notebook contents. 
+The notebook was created by the [Reproducible Science Curriculum](https://github.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter) team and is a great resource to learn more about Jupyter notebooks and basic Python. 
+
+<AlertDropDown severity="info" sx={{ mb: 3 }} title="Keyboard shortcuts for the notebook">
+Here are some frequently used shortcuts for interacting with Jupyter notebooks:
+
+* `Shift` `Enter`: run a cell
+* `Esc` then `M`: change cell type to Markdown
+* `Esc` then `Y`: change cell type to Code
+* `A`: insert cell above current cell
+* `B`: insert cell below current cell
+</AlertDropDown>
+
+## Create your own notebook
+
+Next, you'll be guided through making your own notebook for a small analysis.
+
+1. Open a new Launcher tab by clicking the “+” icon in the tab bar.
+
+2. Under **Notebook**, click on the "Python" app to open a new notebook.
+
+3. Save the notebook - you'll be prompted to provide a name for the new file. Save it as `toy_penguins_analysis.ipynb` inside `badgercompute_intro/`.
+
+    <Alert>
+	    <AlertTitle>Saving</AlertTitle>
+	    You can save your notebook using the normal keyboard shortcut, or by going to "File" and cliking on "Save Notebook" in the menu bar.
+    </Alert>
 
 ### Using Markdown in Your Notebook
 
-You can add text cells using Markdown to explain your analysis. Here’s a quick example of Markdown syntax:
+You can add text cells using Markdown to explain your analysis. 
+
+To see this in action, copy the following text and paste it into the notebook cell. 
 
 ```markdown
 # Meet the Penguins
 
-For this toy tutorial, we will use the [Palmer Penguin dataset](). The dataset was collected by [Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station Antarctica Long Term Ecological Research Network](https://pallter.marine.rutgers.edu/).
+For this toy tutorial, we will use the [Palmer Penguin dataset](https://allisonhorst.github.io/palmerpenguins/). 
+The dataset was collected by [Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station Antarctica Long Term Ecological Research Network](https://pallter.marine.rutgers.edu/).
 ![Artwork of a Chinstrap, Gentoo, and Adelie Penguin - Artwork by @allison_horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
 
 Artwork by @allison_horst
 ```
 
-To convert a cell to Markdown, press `esc` then `m` or select `Code` on the Notebook menu and select `Markdown`. To edit the cell, double-click it. To render the Markdown, press `shift+enter`.
+By default, the first cell in a new notebook is set to "Code" type, but you want this one to be the "Markdown" type.
+To convert a cell to Markdown, click the dropdown box at the top of the notebook that says `Code` and select `Markdown`. 
+To edit the cell after changing it's type, double-click it. 
 
 ![Changing a Cell Type to Markdown](/docs/guided-intro-to-badgercompute/markdown-in-notebook.png)
 
+To render the Markdown into its pretty form, run the Markdown cell.
+This will also create a new Code cell below the rendered content.
+
 ### Import libraries and load data
+
+In the new code cell created by the previous step, copy and paste the following code:
+
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -173,11 +213,16 @@ penguins = pd.read_csv("penguins.csv")
 penguins.head()
 ```
 
+Then run the cell to make the notebook execute the commands in that cell.
+You'll see the first few rows of the table loaded from the CSV file.
+
 ### Inspect and clean
+
+In one cell or in multiple cells, run the following code snippets to inspect and clean up the dataset you loaded:
 
 ```python
 # Quick shape and columns
-penguins.shape, df.columns.tolist()
+penguins.shape, penguins.columns.tolist()
 ```
 
 ```python
@@ -188,10 +233,16 @@ penguins.isna().sum()
 
 ```python
 # Drop rows missing core numeric measurements to simplify this toy example
-clean_penguins = df.dropna(subset=["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"])
+clean_penguins = penguins.dropna(subset=["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"])
 clean_penguins.shape
 ```
+
+The last command should return `(342, 8)`. 
+
 ### Simple stats and grouping
+
+The following code snippets calculates statistics for certain groups within the dataset.
+Again, run these commands in one or multiple cells in your notebook.
 
 ```python
 # Average bill length per species
@@ -203,7 +254,12 @@ clean_penguins.groupby("species")["bill_length_mm"].mean().round(2)
 clean_penguins.groupby(["species", "sex"])["body_mass_g"].mean().round(1).unstack()
 ```
 
-### A quick plot (matplotlib)
+### A quick plot
+
+One of the powerful features of notebooks is the ability to display images in the same document as the code used to generate them.
+
+Here, you'll use the `pandas` integration with `matplotlib` to generate several plots illustrating trends in the dataset.
+Run the following code snippets in your notebook to do so.
 
 ```python
 # Scatter: bill length vs. bill depth
@@ -219,6 +275,8 @@ plt.show()
 ```
 
 ### Compare between species
+
+Next, you'll make a more elaborate plot. 
 
 ```python
 # --------------------------------------------
@@ -241,55 +299,56 @@ plt.show()
 Your output plot should look something like this:
 ![Jupyter Interface](/docs/guided-intro-to-badgercompute/penguin-plot.png)
 
+What if you wanted to change the color of the plot? 
+All you have to do is change the contents of the code cell that generated plot, then re-run it. 
+The plot will update with the changes.
 
 <Alert severity="info" sx={{ mb: 3 }}>
-  If plots don’t render, ensure the cell runs without errors and your kernel is Python 3.
+  If plots don’t render, make sure that all the cells ran without error and that you are using a Python notebook.
 </Alert>
 
 ## Annotate your notebook
 
-Jupyter notebooks are great for mixing code, results, and narrative text. This makes them ideal for sharing and reproducible research. You can add Markdown cells to explain your steps. 
+Jupyter notebooks are great for mixing code, results, and narrative text. 
+This makes them ideal for sharing and reproducible research. 
+You can add Markdown cells to explain your steps. 
 
-Double-click a cell to edit it, then change its type to Markdown (++esc++ then ++m++).
+If you aren't familiar with how to use Markdown syntax, we recommend reading the [Jupyter Markdown Guide](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
 
-<Alert severity="info" sx={{ mb: 3 }}>
-  <AlertTitle>Here are some quick Markdown tips:</AlertTitle>
-  - **Headings**: `# H1`, `## H2`, `### H3`
-  - **Bold**: `**bold**` or `__bold__`
-  - **Italics**: `*italics*` or `_italics_`
-  - **Lists**: `- item` or `1. item`
-  - **Links**: `[text](url)`
-  - **Code**: `` `code` `` for inline, or triple backticks for blocks:
-    ```python
-    print("Hello, Markdown!")
-    ```
-</Alert>
-
-You can also add images, LaTeX math, and more. See the [Jupyter Markdown Guide](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) for details.
+In addition to formatting text, you can also add images, LaTeX math, and more!
 
 ## Save, restart, and export
 
-* **Save**: File → Save Notebook (or ++ctrl+cmd+s++)
+When you are done editing the notebook, make sure to save it!
+We also recommend downloading a copy of the notebook to your own computer as a backup.
+
+* **Save**: File → Save Notebook 
 * **Restart Kernel**: Kernel → Restart Kernel (useful if things get “stuck”)
-* **Shutdown**: In the **File Browser**, right-click the notebook → **Shut Down Kernel**. This will free up resources.
+* **Download**: File (or right-click the file in the pane) → Download
 * **Export**: File → Save and Export Notebook As… (e.g., HTML)
 
 ## File persistence and best practices
 
-* Your files typically persist across sessions in your home space on BadgerCompute.
-  * Keep work organized in folders (`badgercompute_intro`, project1, etc.).
-* Use Git for version control if you’re doing extended work:
-  * Clone a repo in a Terminal: git clone `https://github.com/your/repo.git`
-  * Commit regularly; push to GitHub for off-platform backup.
+The contents of the `/work` directory are saved across BadgerCompute sessions,
+subject to the [Data Retention Policy](/policies#data-retention-policy).
+
+If you want to make sure you don't lose your data, we encourage you to download the files at the end of the session.
 
 ## Shut down and log out
 
-* Close notebooks or shut down their kernels from the **Running Terminals and Kernels** panel (left sidebar → “Running” tab).
-* From the top right of JupyterLab, click your user menu → **Log Out** (or return to the Hub control panel and choose **Stop My Server** if visible).
-* You can safely close the browser tab.
+To end your BadgerCompute session, follow these steps:
+
+1. Close notebooks or shut down their kernels from the **Running Terminals and Kernels** panel (left sidebar → “Running” tab).
+2. Log out by going to **File** → **Log Out**.
+3. Close your browser tab.
+
+It's okay if you don't follow this procedure every time - the BadgerCompute session will automatically shut down after 10 minutes without any browsers open.
 
 ## Forward - Where to go next
 
 * Explore more notebooks in your repo or public tutorials.
 * Try **pandas** joins/merges, groupby + aggregation, or **matplotlib/plotly** visualizations.
 * Practice uploading your own CSV via the File Browser and running similar analyses.
+
+If you have questions or just want to chat about the possibilities, join the [BadgerCompute Community Forum](https://community.badgercompute.wisc.edu)!
+
