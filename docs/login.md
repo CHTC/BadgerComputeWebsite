@@ -5,45 +5,43 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
 > **At a glance** <br>
 > 1) Go to the BadgerCompute Launch URL → 2) Login with your NetID → 3) Approve sign-in using Duo 2FA → 4) Pick a server option → 5) Start your server.
 
----
 
 ## Prerequisites
 
 - You have an active NetID
-- You have completed the required [BadgerCompute Onboarding Canvas Course](/get-started/#canvas-course)
+- You have completed the required [BadgerCompute Certification Course](/get-started/#canvas-course)
     - **Annual renewal may be required.**
 
----
 
 ## Step-by-step login
 
 1. **Open the BadgerCompute Launch URL**
     
-    Visit the BadgerCompute homepage:  
+    Visit the BadgerCompute launch page:  
     [launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu){ .md-button }
 
 2. **Click “Sign in with your UW-Madison NetID”**
 
     You’ll be redirected to the **UW-Madison Single sign-on** login page. Login with your NetID and password.
     
-    ![Image title](/images/docs/login-guide/Welcome-to-BadgerCompute-light.png#only-light)
-    ![Image title](/images/docs/login-guide/Welcome-to-BadgerCompute-Dark.png#only-dark)
+    ![Welcome-light](/docs/login-guide/Welcome-to-BadgerCompute-light.png)
+    ![Welcome-dark](/docs/login-guide/Welcome-to-BadgerCompute-Dark.png)
 
-5. **Return to BadgerCompute**
+3. **Return to BadgerCompute**
 
     After successful SSO, you’ll land back on the **JupyterHub** page for BadgerCompute.
     
-    ![Image title](/images/docs/login-guide/netid-login.png)
+    ![Image title](/docs/login-guide/netid-login.png)
 
     ??? tip "Two Factor Authentication (2FA)"
         You will likely be prompted for 2FA to approve the sign-in via Duo or your chosen method. <br><br>
-        ![Image title](/images/docs/login-guide/Duo-code.png)
+        ![Image title](/docs/login-guide/Duo-code.png)
 
-6. **(First time only) Review/accept any terms (if applicable)** 
+4. **(First time only) Review/accept any terms (if applicable)** 
 
     If presented with usage terms and conditions, complete it once. You won’t be asked again unless policies change.
 
-7. **Choose your server options**
+5. **Choose your server options**
 
     You may see:
 
@@ -53,8 +51,8 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
      * Other Docker image (advanced)
      * Build your own image (advanced)
 
-     ![Image title](/images/docs/login-guide/select-notebook-template-light.png#only-light)
-     ![Image title](/images/docs/login-guide/select-notebook-template-dark.png#only-dark)
+     ![Image title](/docs/login-guide/select-notebook-template-light.png#only-light)
+     ![Image title](/docs/login-guide/select-notebook-template-dark.png#only-dark)
    
      Select the option that fits your workload and click **Start**.
 
@@ -63,8 +61,8 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
 
     You’ll see **“Your server is starting up…”** for ~30–90 seconds (longer during peak times). When ready, you’ll land in **JupyterLab**.
     
-    ![Image title](/images/docs/login-guide/notebook-starting-light.png#only-light)
-    ![Image title](/images/docs/login-guide/notebook-starting-dark.png#only-dark)
+    ![Image title](/docs/login-guide/notebook-starting-light.png#only-light)
+    ![Image title](/docs/login-guide/notebook-starting-dark.png#only-dark)
    
     ???+ warning "If it takes too long"
         If it takes >3 minutes, refresh the page once. If it still doesn’t start, try a different image. Please note, servers may take longer to start during peak usage times. BadgerCompute is a shared resource and availability is not guaranteed.
@@ -73,19 +71,18 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
     
     You can create notebooks, open terminals, and manage files. 
     
-    ![Image title](/images/docs/login-guide/jupyter-lab.png){ align=left }
----
+    ![Image title](/docs/login-guide/jupyter-lab.png){ align=left }
+
 
 ## After you log in
 
-- **You’re in JupyterLab.** Use the Launcher to open notebooks (`.ipynb`), terminals, or text editors.
+- **You’re in JupyterLab.** Use the Launcher to open notebooks (`.ipynb`), terminals, or text editors. See our [Welcome to BadgerCompute](hello-jupyter) page for an example 
+data analysis! 
 - **Your files live in your home directory.** Anything under your home persists across restarts unless otherwise noted by your site’s storage policy.
 - **To end your session:** _File → Log Out_ (JupyterLab) and optionally **Stop My Server** on the Hub page to free resources.
 
 !!! tip "Come back later"
-    Bookmark the link [launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu). When you return, you’ll usually go straight in via SSO unless your session expired (you’ll be prompted to sign in again). Your notebook may be stopped if idle, but files in your /work directory persist for 30 days.
-
----
+    Bookmark the link [launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu). When you return, you’ll usually go straight in via SSO unless your session expired (you’ll be prompted to sign in again). Your notebook may be stopped if idle, but files in your `/work` directory persist for 30 days.
 
 ## Troubleshooting
 
@@ -103,7 +100,6 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
 ??? summary "I am getting a "400 : Bad Request" error"
     This can happen if you already have an active session and try to start a new one. You can return to your previous session or stop it from the [Hub page](https://badgerhub.jupyter-uw-prod.chtc.io/hub/home). If the issue persists, try logging out and back in, or clear your cookies.
 
----
 
 ## Sign-out, timeouts, and idle culling
 
@@ -111,7 +107,6 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
 - **Timeouts:** To keep capacity available, servers **will** be shut down automatically after a period of 4hrs since the start of the session. Files in your /work directory persist for 30 days. All other data may be deleted upon server shutdown.
 - **Session expiration:** Your SSO session will periodically require re-authentication (especially after closing the browser or long idle periods).
 
----
 
 ## Privacy & data notes
 
@@ -119,16 +114,10 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
 - **Files:** Stored in your BadgerCompute home or attached volumes according to the [BadgerCompute policy](/policies#data-retention-policy).
 - **Compute usage tracking:** We track aggregate usage metrics to improve the service and plan capacity.
 
----
 
 ## Support
 
 If you hit issues or need access:
 
-- 📧 **Email:** `<support-address>@<domain>`  
-- 💬 **Discourse:** `community.badgerhub.wisc.edu`
+- 💬 **Support Forum:** `community.badgerhub.wisc.edu`
 - 📚 **Docs:** `docs.badgercompute.wisc.edu`
-
----
-
-*Last updated: {{ git.date }}*
