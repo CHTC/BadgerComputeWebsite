@@ -3,6 +3,7 @@ import MuiLink from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import type { MDXComponents } from 'mdx/types';
 import {Paper} from "@mui/material";
+import ExportedImage from "next-image-export-optimizer";
 
 const components: MDXComponents = {
 	h1: ({ children, ...props }) => {
@@ -36,7 +37,14 @@ const components: MDXComponents = {
 		</>
 	},
 	pre: (props) => <Box component="pre" sx={{ bgcolor: 'grey.100', p: 2, borderRadius: 2, overflow: 'auto', mb: 2 }} {...props} />,
-	img: (props) => <Paper elevation={1} component="img" sx={{ maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2 }} {...props} />,
+	img: async (props) => {
+		const image = await import(`@/public/docs/${(props.src as string).replace('/docs/', '')}`)
+		return (
+			<Paper elevation={1} sx={{maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2}}>
+				<ExportedImage {...props} style={{width: "100%", height: 'auto'}} src={image.default} />
+			</Paper>
+		)
+	},
 }
 
 export function useMDXComponents(): MDXComponents {
