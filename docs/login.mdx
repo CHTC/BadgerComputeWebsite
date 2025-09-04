@@ -1,5 +1,10 @@
 import Alert from "@mui/material/Alert"
 import AlertTitle from "@mui/material/AlertTitle"
+import Button from "@mui/material/Button"
+import Link from "@mui/material/Link"
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import {NOTEBOOK_URL} from "../app/config";
+
 import AlertDropDown from "@/components/AlertDropDown";
 
 # Log in to BadgerCompute
@@ -21,7 +26,9 @@ Use this guide to sign in to **BadgerCompute**, our Jupyter notebook service, an
 
 1. **Open the BadgerCompute Launch URL**
     
-    Visit the BadgerCompute launch page: [launch.badgercompute.wisc.edu](https://launch.badgercompute.wisc.edu)
+    Visit the BadgerCompute launch page:
+
+		<Link href={NOTEBOOK_URL}><Button variant={'outlined'} size="small" endIcon={<RocketLaunchIcon />}>Launch Notebook</Button></Link>
 
 2. **Click “Sign in with your UW-Madison NetID”**
 
