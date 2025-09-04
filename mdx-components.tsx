@@ -22,7 +22,7 @@ const components: MDXComponents = {
 	h6: ({ children, ...props }) => {
 		return <Typography component={'h6'} variant="h6" fontWeight={300} color={"primary.main"} gutterBottom {...props}>{children}</Typography>;
 	},
-	p: (props) => <Typography variant="body1" pb={3} {...props} />, // use sx for spacing
+	p: (props) => <Typography variant="body1" component={'div'} pb={3} {...props} />, // use sx for spacing
 	a: (props) => <MuiLink {...props} />,
 	ul: (props) => <Box component="ul" sx={{ pl: 4, mb: 2 }} {...props} />,
 	ol: (props) => <Box component="ol" sx={{ pl: 4, mb: 2 }} {...props} />,

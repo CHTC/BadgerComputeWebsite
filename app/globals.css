@@ -3,6 +3,6 @@
 }
 
 /* Final p tag in a alert doesn't have margin bottom */
-.MuiAlert-message p:last-child {
+.MuiAlert-message :last-child {
     padding-bottom: 0;
 }
