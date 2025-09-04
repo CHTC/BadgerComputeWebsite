@@ -7,42 +7,51 @@
     There are only two requirements for using BadgerCompute:
 
     1. You must have an active [NetID](https://kb.wisc.edu/iam/page.php?id=4966).
-    2. You must have completed the [Certification Course on Canvas]() for the current academic year.
+    2. You must have completed the [Certification Course on Canvas](https://canvas.wisc.edu/enroll/JR887K) for the current academic year, which includes agreeing to our [Acceptable Use Policy](https://badgercompute.wisc.edu/policies/).
+
+1. **How many resources can I get? Can I use GPUs?**
+
+	Resources available are described on our [policies page](https://badgercompute.wisc.edu/policies/#availability). These include CPUs, 
+	memory and GPUs. 
+	
+	There may be times when users are not 
+	able to start a session, depending on demand. 
 
 1. **How many people can use BadgerCompute at once?**
 
-    We can only support **50** concurrent users at this time.
+    We can support approximately 80-100 concurrent users at this time.
 
 1. **I'm a student - can I use BadgerCompute for my class?**
 
-    [Answer]
+    You are welcome to use BadgerCompute for class work. However, we make no guarantees that the service will be available if you need it at a specific time; we are not responsible for missed deadlines based on BadgerCompute availability. 
 
 1. **I'm a teacher - can I use BadgerCompute for a demonstration?**
 
     You are welcome to use BadgerCompute for demonstration purposes.
 
     Keep in mind, however, that the service operates on a first-come, first-served basis, and that there is limited capacity.
-    *We cannot guarantee that you will have access to BadgerCompute when you need it during class.*
+    *Currently, we cannot guarantee that you will have access to BadgerCompute when you need it during class.* 
 
-1. **I'm a teacher of a small course (< 10 students) - can I tell my students to use BadgerCompute for coursework?**
+1. **I'm a teacher of a course that includes computational work - can I tell my students to use BadgerCompute for coursework?**
 
-    Using BadgerCompute in a small course (< 10 students) should be okay.
-
-    That being said, since this is a new service with limited capacity, we recommend that
-    you share alternative ways to complete coursework besides using BadgerCompute.
-    We cannot guarantee that the service will be operational at all times.
-
-1. **I'm a teacher of a large course (> 10 students) - can I tell my students to use BadgerCompute for coursework?**
-
-    Due to the limited availability of the service at this time, *please do not tell your students to use BadgerCompute*.
-
-    If you are interested in using BadgerCompute in a large course, feel free to connect with us via the [BadgerCompute Community Discourse]().
+    Using BadgerCompute in a small course (< 10 students) should be okay. Note that 
+    this is a new service, with limited capacity, so we cannot guarantee that students
+    will be able to access sessions whenever they need them (for example, the night 
+    before a homework is due), so we do recommend you share alternative options to 
+    Badger Compute as well. 
+    
+    For a larger class, get in touch ([Community Forum](https://community.badgercompute.wisc.edu/c/get-started/5)) and we can discuss whether BadgerCompute or 
+    another service will be the best fit for your learners' needs. 
 
 ## Using BadgerCompute notebooks
 
 1. **Why can't I log in to the BadgerCompute notebook?**
 
-    [Answer]
+    1. Have you completed (and passed!) the [Certification Course on Canvas](https://canvas.wisc.edu/enroll/JR887K)? 
+    1. Have you waited at least 24 hours since passing the course? 
+    
+    If the answer to both of the questions is yes, and you still can't access the 
+    BadgerCompute notebooks, contact us on the [Community Forum](https://community.badgercompute.wisc.edu/c/get-started/5). 
 
 1. **Why is my notebook taking forever to start?**
 
@@ -51,22 +60,30 @@
 
 1. **How long will my BadgerCompute notebook session last?**
 
-    The notebook session will automatically shut down after X hours, even if you are actively using it.
+    The notebook session will automatically shut down after 4 hours, even if you are actively using it. There is a timer at the bottom of the window to show you how much 
+    time you have left. 
 
     A notebook session is considered "inactive" if there are no browsers connected to the session. 
     After 10 minutes of inactivity, the session will automatically shut down.
 
 1. **The notebook shutdown while I was using it. Will my work be saved?**
-
+    
     On shutdown, any `.ipynb` files with unsaved changes will be automatically saved.
     Changes to any other files will be discarded.
 
-    However, only files in the `~/work` directory will persist between sessions.
-    
+    Only files in the `~/work` directory will persist between sessions. Any files outside
+    this location will be deleted between sessions. 
+
 ## Software
 
+Coming soon! 
+
+<!--
+
 ## Data
+-->
 
 ## More resources
 
-
+- 💬 **Support Forum:** `community.badgerhub.wisc.edu`
+- 📚 **Docs:** `docs.badgercompute.wisc.edu`
