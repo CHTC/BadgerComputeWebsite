@@ -1,6 +1,18 @@
+import Button from "@mui/material/Button"
+import Link from "@mui/material/Link"
+import Box from "@mui/material/Box"
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
+import {DISCOURSE_URL} from "../app/config";
+
 # Get Help
 
-[BadgerCompute Discourse :material-arrow-top-right:](https://community.badgercompute.wisc.edu/){ .md-button .md-button--primary }
+<Box mb={2}>
+	<Link href={DISCOURSE_URL}>
+		<Button variant={'outlined'} endIcon={<OpenInNewIcon />}>BadgerCompute Discourse</Button>
+	</Link>
+</Box>
+
 
 ## BadgerCompute Discourse
 
@@ -12,7 +24,7 @@ There, you can
 * Report issues or bugs
 * Connect with like-minded researchers
 
-[![Homepage of BadgerCompute Discourse site](../images/badgercompute-discourse.png)](https://community.badgercompute.wisc.edu/)
+[![Homepage of BadgerCompute Discourse site](/docs/get-help/discourse-homepage.png)](https://community.badgercompute.wisc.edu/)
 
 ### Log in to Discourse
 
