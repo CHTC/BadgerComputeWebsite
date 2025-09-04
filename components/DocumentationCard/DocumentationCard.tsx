@@ -10,7 +10,7 @@ import { ReactNode } from "react";
 export interface DocumentationCardProps {
   icon: ReactNode;
   title: string;
-  description: string;
+  description?: string;
 }
 
 const DocumentationCard = ({ icon, title, description }: DocumentationCardProps) => (
@@ -22,9 +22,11 @@ const DocumentationCard = ({ icon, title, description }: DocumentationCardProps)
       <Typography variant="h6" component="h3" gutterBottom>
         {title}
       </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {description}
-      </Typography>
+			{description &&
+				<Typography variant="body2" color="text.secondary">
+					{description}
+				</Typography>
+			}
     </CardContent>
   </Card>
 );
