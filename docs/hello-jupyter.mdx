@@ -1,5 +1,9 @@
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
+import Button from "@mui/material/Button";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import Link from "@mui/material/Link";
+import {NOTEBOOK_URL} from "../app/config";
 
 # Guided Intro to Using BadgerCompute (UW–Madison JupyterHub)
 
@@ -10,15 +14,11 @@ Welcome! This short, hands-on intro will get you running on **BadgerCompute**, U
 3) Run a toy analysis in Python (pandas + matplotlib)  
 4) Learn how to save, shut down, and log out
 
-<br>
-
 ## Prerequisites
 
 - A UW NetID and access to **BadgerCompute** (JupyterHub).
 - A modern web browser (Chrome/Firefox/Safari).
 - No local installs required—everything runs in the cloud.
-
-<br>
 
 ## Log in and choose the Basic Data Science environment
 
@@ -32,8 +32,6 @@ Welcome! This short, hands-on intro will get you running on **BadgerCompute**, U
   <AlertTitle>This may take a few minutes</AlertTitle>
   Wait patiently while your server starts. If it takes more than 10 minutes, try refreshing the page or logging out and back in. Wait times may be longer during peak usage periods.
 </Alert>
-
-<br>
 
 ## Familiarize yourself with JupyterLab's Interface
 
@@ -49,8 +47,6 @@ Welcome! This short, hands-on intro will get you running on **BadgerCompute**, U
   When you open a **Notebook**, it runs code in cells and shows outputs inline. A **Terminal** is a command-line interface for running shell commands. You can use either depending on your task. Notebooks are a great way to combine code, results, and narrative text for data analysis. You can write and execute code in cells, see outputs immediately, and document your workflow with Markdown.
 </Alert>
 
-<br>
-
 ## Create a workspace folder (optional but recommended)
 
 Let’s keep this tidy:
@@ -64,8 +60,6 @@ Let’s keep this tidy:
   <AlertTitle>Persistent storage</AlertTitle>
   Your `/work` directory is the only top-level directory which offers persistent storage. Files kept here will remain available across sessions for up to 30 days after your last login. Files in other directories may be deleted when your server stops.
 </Alert>
-
-<br>
 
 ## Download a notebook + dataset with `wget`
 
