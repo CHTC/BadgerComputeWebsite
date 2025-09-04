@@ -15,7 +15,7 @@ export async function generateMetadata(
 	const { default: Post, frontmatter, tableOfContents } = await importSlug(slug);
 
 	return {
-		title: frontmatter?.title || 'Documentation',
+		title: frontmatter?.title || tableOfContents?.[0]?.value || 'Documentation',
 		description: frontmatter?.description || 'BadgerCompute documentation and tutorials',
 		openGraph: {
 			title: frontmatter?.title || 'Documentation',

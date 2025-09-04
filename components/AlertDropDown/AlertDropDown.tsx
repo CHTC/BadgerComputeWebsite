@@ -9,37 +9,41 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Box from "@mui/material/Box";
 import { AlertTitle } from "@mui/material";
 
-interface AlertDropDownProps extends AlertProps {
-	title: string;
+interface AlertDropDownProps extends Omit<AlertProps, 'title'> {
+	title: ReactNode | string;
   children: ReactNode;
+	defaultOpen?: boolean;
 }
 
-const AlertDropDown: React.FC<AlertDropDownProps> = ({ title, children, ...alertProps }) => {
-  const [open, setOpen] = useState(false);
+const AlertDropDown: React.FC<AlertDropDownProps> = ({ title, children, defaultOpen = false, ...alertProps }) => {
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <Box>
-      <Alert
-				{...alertProps}
-        action={
-          <IconButton
-            aria-label={open ? "Collapse alert" : "Expand alert"}
-            color="inherit"
-            size="small"
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-          </IconButton>
-        }
-        sx={{ cursor: "pointer", userSelect: "none" }}
-        onClick={() => setOpen((prev) => !prev)}
-      >
-				<AlertTitle sx={{mb: 0, pb: 0}}>{title}</AlertTitle>
-				<Collapse in={open}>
-					<Box sx={{ mt: 2 }}>{children}</Box>
-				</Collapse>
-      </Alert>
-    </Box>
+		<Alert
+			{...alertProps}
+			sx={{
+				mb: 2,
+				cursor: "pointer",
+				userSelect: "none",
+				...alertProps.sx,
+			}}
+			action={
+				<IconButton
+					aria-label={open ? "Collapse alert" : "Expand alert"}
+					color="inherit"
+					size="small"
+					onClick={() => setOpen((prev) => !prev)}
+				>
+					{open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+				</IconButton>
+			}
+			onClick={() => setOpen((prev) => !prev)}
+		>
+			<AlertTitle sx={{mb: 0, pb: 0}}>{title}</AlertTitle>
+			<Collapse in={open}>
+				<Box sx={{ mt: 2 }}>{children}</Box>
+			</Collapse>
+		</Alert>
   );
 };
 

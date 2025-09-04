@@ -2,6 +2,7 @@ import Typography from '@mui/material/Typography';
 import MuiLink from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import type { MDXComponents } from 'mdx/types';
+import {Paper} from "@mui/material";
 
 const components: MDXComponents = {
 	h1: ({ children, ...props }) => {
@@ -35,7 +36,7 @@ const components: MDXComponents = {
 		</>
 	},
 	pre: (props) => <Box component="pre" sx={{ bgcolor: 'grey.100', p: 2, borderRadius: 2, overflow: 'auto', mb: 2 }} {...props} />,
-	img: (props) => <Box component="img" sx={{ maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2 }} {...props} />,
+	img: (props) => <Paper elevation={1} component="img" sx={{ maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2 }} {...props} />,
 }
 
 export function useMDXComponents(): MDXComponents {
