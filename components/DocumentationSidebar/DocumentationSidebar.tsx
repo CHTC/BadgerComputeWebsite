@@ -52,10 +52,9 @@ function NavigationNode({ item, level }: { item: NavigationItem; level: number }
   }
 
   // Leaf node (link)
-	const href = `${item.path?.replace(/\.mdx?$|\/index\.md$/, '') || ''}/`
-	const isActive = pathname === href
+	const isActive = pathname === item.path
   return (
-		<Link href={href} underline="hover" color={isActive ? 'primary.main' : 'text.primary'} fontWeight={isActive ? 600 : 400}>
+		<Link href={item.path} underline="hover" color={isActive ? 'primary.main' : 'text.primary'} fontWeight={isActive ? 600 : 400}>
 			<ListItem sx={{ pl: (level + 1) * 2 }}>
 				{item.label}
 			</ListItem>
