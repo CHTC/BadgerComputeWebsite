@@ -1,3 +1,0 @@
-# Features Showcase
-
-Features Showcase.
