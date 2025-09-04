@@ -1,18 +1,17 @@
 import { glob } from 'glob';
 
 import DocumentationPage from "@/components/DocumentationPage";
-import {Metadata, ResolvingMetadata} from "next";
+import {Metadata} from "next";
 
 type Props = {
 	params: Promise<{ slug: string[] }>
 }
 
 export async function generateMetadata(
-	{ params }: Props,
-	parent: ResolvingMetadata
+	{ params }: Props
 ): Promise<Metadata> {
 	const slug = (await params).slug;
-	const { default: Post, frontmatter, tableOfContents } = await importSlug(slug);
+	const { frontmatter, tableOfContents } = await importSlug(slug);
 
 	return {
 		title: frontmatter?.title || tableOfContents?.[0]?.value || 'Documentation',

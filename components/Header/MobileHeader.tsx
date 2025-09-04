@@ -21,7 +21,6 @@ import Link from "@mui/material/Link"
 
 import Title from "@/components/Header/Title";
 import {NavigationItem} from "@/components/DocumentationSidebar";
-import {ListItemIcon} from "@mui/material";
 
 const MobileHeader = ({pages} : {pages: NavigationItem[]}) => {
 

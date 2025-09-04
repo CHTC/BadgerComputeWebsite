@@ -12,7 +12,6 @@ import React from "react";
 import LabeledIconButton from "@/components/LabeledIconButton";
 import LaunchButton from "@/components/Header/LaunchButton";
 import Title from "@/components/Header/Title";
-import {HeaderProps} from "@/components/Header";
 import {NavigationItem} from "@/components/DocumentationSidebar";
 
 const DesktopHeader = ({pages} : {pages: NavigationItem[]}) => (
