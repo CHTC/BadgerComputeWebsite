@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const pages = [
-	{ label: 'Get Started', path: '/docs/hello-jupyter', icon: <PlayArrow /> },
+	{ label: 'Get Started', path: '/get-started', icon: <PlayArrow /> },
 	{ label: 'Policies', path: '/policies', icon: <AssignmentTurnedIn /> },
 	{
 		label: 'Documentation',
