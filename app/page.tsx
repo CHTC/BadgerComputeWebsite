@@ -1,6 +1,9 @@
-import { Box, Typography, Button, Container, Card, CardMedia, CardContent } from "@mui/material";
+import { Box, Typography, Button, Container, Card, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
-export default function Home() {
+
+import CardMedia from "@/components/CardMedia";
+
+export default async function Home() {
 
   return (
 
@@ -12,7 +15,7 @@ export default function Home() {
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
-          backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('${process.env.NEXT_PUBLIC_BASE_PATH}/website/Messier_24_(infrared,_red,_green).jpg')`,
+          backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/website/Messier_24_(infrared,_red,_green).jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
 					backdropFilter: "brightness(40%)",
@@ -93,10 +96,8 @@ export default function Home() {
 					<Grid size={{xs: 12, md: 4}} display={"flex"}>
             <Card sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
-                component="img"
-                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-languages.svg`}
+                image={(await import(`@/public/website/jupyter-languages.svg`)).default}
                 alt="Develop your code"
-                sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
               <CardContent>
                 <Typography variant="h6" component="h3" gutterBottom align="center">
@@ -112,10 +113,8 @@ export default function Home() {
 					<Grid size={{xs: 12, md: 4}} display={"flex"}>
             <Card sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
-                component="img"
-                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-compute.png`}
+                image={(await import(`@/public/website/jupyter-compute.png`)).default}
                 alt="Compute and analyze"
-                sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
               <CardContent>
                 <Typography variant="h6" component="h3" gutterBottom align="center">
@@ -136,10 +135,8 @@ export default function Home() {
           <Grid size={{xs: 12, md: 4}} display={"flex"}>
             <Card sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
               <CardMedia
-                component="img"
-                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-interact.png`}
+                image={(await import(`@/public/website/jupyter-interact.png`)).default}
                 alt="Interact with your data"
-                sx={{ width: 300, height: "auto", objectFit: "contain", mb: 2 }}
               />
               <CardContent>
                 <Typography variant="h6" component="h3" gutterBottom align="center">
@@ -166,14 +163,17 @@ export default function Home() {
             </Typography>
           </Grid>
           <Grid size={{xs: 12, md: 7}}>
-            <video
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/website/jupyter-video.mp4`}
-              autoPlay
+						<video
+							autoPlay
 							loop
 							muted
 							playsInline
-              style={{ width: "100%", borderRadius: "8px" }}
-            />
+							style={{ width: "100%", borderRadius: "8px" }}
+						>
+							<source src={`/website/jupyter-video.webm`} type="video/webm" />
+							<source src={`/website/jupyter-video.mp4`} type="video/mp4" />
+							Your browser does not support the video tag.
+						</video>
           </Grid>
         </Grid>
       </Container>

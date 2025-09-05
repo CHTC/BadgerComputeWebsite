@@ -17,3 +17,18 @@
 .boldOrderedListBelow + ol li::marker {
   font-weight: bold;
 }
+
+/*
+ Enables images based on color mode
+ */
+@media (prefers-color-scheme: dark) {
+    img[mode="light"] {
+        display: none;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    img[mode="dark"] {
+        display: none;
+    }
+}

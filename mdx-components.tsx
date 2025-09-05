@@ -3,6 +3,7 @@ import MuiLink from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import type { MDXComponents } from 'mdx/types';
 import {Paper} from "@mui/material";
+import ExportedImage from "next-image-export-optimizer";
 
 const components: MDXComponents = {
 	h1: ({ children, ...props }) => {
@@ -36,7 +37,28 @@ const components: MDXComponents = {
 		</>
 	},
 	pre: (props) => <Box component="pre" sx={{ bgcolor: 'grey.100', p: 2, borderRadius: 2, overflow: 'auto', mb: 2 }} {...props} />,
-	img: (props) => <Paper elevation={1} component="img" sx={{ maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2 }} {...props} />,
+	img: async (props) => {
+
+		// Pull out the #only-light and #only-dark tags if they exist
+		const mode = props.src?.includes('#only-light') ? 'light' : props.src?.includes('#only-dark') ? 'dark' : 'na'
+
+		// Strip mode tag and /docs/ from the image path to get the relative path in the public/docs folder
+		const imagePath = (props.src as string).replace('/docs/', '').replace('#only-light', '').replace('#only-dark', '')
+
+		try {
+			const image = await import(`@/public/docs/${imagePath}`)
+
+			return (
+				<Paper elevation={1} sx={{maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2}}>
+					<ExportedImage {...props} parentSrc={props.src} mode={mode} style={{width: "100%", height: 'auto'}} src={image.default} />
+				</Paper>
+			)
+		} catch (e) {
+
+			console.error(`Image not found: ${imagePath}`, e)
+			return <Typography color={"error"}>Image not found: {imagePath}</Typography>
+		}
+	},
 }
 
 export function useMDXComponents(): MDXComponents {
