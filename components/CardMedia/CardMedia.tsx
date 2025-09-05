@@ -17,6 +17,7 @@ interface CardMediaProps {
   width?: number;
   height?: number;
   style?: React.CSSProperties;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
