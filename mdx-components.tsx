@@ -38,12 +38,26 @@ const components: MDXComponents = {
 	},
 	pre: (props) => <Box component="pre" sx={{ bgcolor: 'grey.100', p: 2, borderRadius: 2, overflow: 'auto', mb: 2 }} {...props} />,
 	img: async (props) => {
-		const image = await import(`@/public/docs/${(props.src as string).replace('/docs/', '')}`)
-		return (
-			<Paper elevation={1} sx={{maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2}}>
-				<ExportedImage {...props} style={{width: "100%", height: 'auto'}} src={image.default} />
-			</Paper>
-		)
+
+		// Pull out the #only-light and #only-dark tags if they exist
+		const mode = props.src?.includes('#only-light') ? 'light' : props.src?.includes('#only-dark') ? 'dark' : 'na'
+
+		// Strip mode tag and /docs/ from the image path to get the relative path in the public/docs folder
+		const imagePath = (props.src as string).replace('/docs/', '').replace('#only-light', '').replace('#only-dark', '')
+
+		try {
+			const image = await import(`@/public/docs/${imagePath}`)
+
+			return (
+				<Paper elevation={1} sx={{maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2}}>
+					<ExportedImage {...props} parentSrc={props.src} mode={mode} style={{width: "100%", height: 'auto'}} src={image.default} />
+				</Paper>
+			)
+		} catch (e) {
+
+			console.error(`Image not found: ${imagePath}`, e)
+			return <Typography color={"error"}>Image not found: {imagePath}</Typography>
+		}
 	},
 }
 
