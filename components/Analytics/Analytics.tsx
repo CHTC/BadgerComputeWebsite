@@ -4,12 +4,7 @@ import { init, push } from '@socialgouv/matomo-next';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef  } from 'react';
 
-const Analytics = ({url, siteId}: {url?: string, siteId?: string}) => {
-
-	if (!url || !siteId) {
-		console.warn('Matomo URL or Site ID not set');
-		return null;
-	}
+const Analytics = ({url, siteId}: {url: string, siteId: string}) => {
 
 	const pathname = usePathname();
 	const isInitialLoad = useRef(true);
@@ -22,7 +17,7 @@ const Analytics = ({url, siteId}: {url?: string, siteId?: string}) => {
 		} catch {
 			console.error('Matomo failed to initialize');
 		}
-	}, []);
+	}, [url, siteId]);
 
 	useEffect(() => {
 		if (isInitialLoad.current) {
