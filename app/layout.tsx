@@ -12,6 +12,7 @@ import {theme} from "./theme";
 import Header from "@/components/Header";
 import LogoBar from "@/components/LogoBar";
 import {navigation} from "@/app/docs/navigation";
+import Analytics from "@/components/Analytics";
 
 
 const rhd = Red_Hat_Display({
@@ -45,6 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${rht.className} ${rhd.className}`}>
+			<Analytics url={process.env.NEXT_PUBLIC_MATOMO_URL} siteId={process.env.NEXT_PUBLIC_MATOMO_SITE_ID} />
       <Box component={"body"} sx={{ margin: 0, padding: 0 }}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>

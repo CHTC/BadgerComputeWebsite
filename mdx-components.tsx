@@ -50,7 +50,7 @@ const components: MDXComponents = {
 
 			return (
 				<Paper elevation={1} sx={{maxWidth: '100%', height: 'auto', my: 2, borderRadius: 2}}>
-					<ExportedImage {...props} parentSrc={props.src} mode={mode} style={{width: "100%", height: 'auto'}} src={image.default} />
+					<ExportedImage {...props} mode={mode} style={{width: "100%", height: 'auto'}} src={image.default} />
 				</Paper>
 			)
 		} catch (e) {

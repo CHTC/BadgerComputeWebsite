@@ -19,6 +19,7 @@
     "@mui/material": "^7.3.1",
     "@mui/material-nextjs": "^7.3.0",
     "@next/mdx": "^15.5.0",
+    "@socialgouv/matomo-next": "^1.9.2",
     "@stefanprobst/rehype-extract-toc": "^3.0.0",
     "@types/mdx": "^2.0.13",
     "estree-util-value-to-estree": "^3.4.0",
