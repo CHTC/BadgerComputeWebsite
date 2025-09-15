@@ -1,4 +1,4 @@
-import { Typography, Grid, Link, TypographyVariant } from "@mui/material";
+import {Typography, Grid, Link, TypographyVariant, IconProps} from "@mui/material";
 import {ElementType, cloneElement, ReactElement} from "react";
 
 
@@ -48,7 +48,7 @@ const NavigationItem = ({label, path, icon, children, depth}: NavigationItem & {
 					}}
 					gutterBottom
 				>
-					{icon && cloneElement(icon as ReactElement, {style: {fontSize: 'inherit', marginRight: '1rem'}})}
+					{icon && cloneElement(icon as ReactElement<IconProps>, {style: {fontSize: 'inherit', marginRight: '1rem'}})}
 					{label}
 				</Typography>
 			</Grid>
