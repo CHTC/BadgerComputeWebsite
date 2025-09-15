@@ -1,6 +1,8 @@
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import HelpIcon from '@mui/icons-material/Help';
+import Grid from '@mui/material/Grid';
+import TitleActionCard from '../../components/TitleActionCard/TitleActionCard';
 
 # Get Started with BadgerCompute
 
@@ -60,7 +62,23 @@ You can only log in to BadgerCompute if you have completed the [Canvas Course](#
 
 ## Next Steps
 
-* [Do the Introduction tutorial](/docs/hello-jupyter)
-* [Checkout the docs](/docs/)
-* [Join the BadgerCompute Community](https://community.badgercompute.wisc.edu)
-
+<Grid container spacing={3} sx={{ mt: 3 }}>
+  <Grid item xs={12} md={4}>
+    <TitleActionCard
+      title="Introduction Tutorial"
+      action={{ label: "Complete The Tutorial", href: "/docs/hello-jupyter" }}
+    />
+  </Grid>
+  <Grid item xs={12} md={4}>
+    <TitleActionCard
+      title="Documentation"
+      action={{ label: "Read the Documentation", href: "/docs/" }}
+    />
+  </Grid>
+  <Grid item xs={12} md={4}>
+    <TitleActionCard
+      title="Community"
+      action={{ label: "Join the Community", href: "https://community.badgercompute.wisc.edu" }}
+    />
+  </Grid>
+</Grid>
