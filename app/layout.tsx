@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 
 import {Box} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { Banner, Footer } from "@/components/UW";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import {Red_Hat_Display, Red_Hat_Text} from "next/font/google";
 import { PlayArrow, Description, AssignmentTurnedIn } from '@mui/icons-material';
+
+import Banner from "@chtc/web-components/UW/Banner"
+import Footer from "@chtc/web-components/UW/Footer"
 
 import "./globals.css"
 import {theme} from "./theme";
