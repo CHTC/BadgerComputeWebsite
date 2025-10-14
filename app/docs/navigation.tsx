@@ -1,4 +1,4 @@
-import { MenuBook, Help, Login, SupportAgent } from "@mui/icons-material";
+import { MenuBook, Help, Login, SupportAgent, Timeline } from "@mui/icons-material";
 
 // Facilitators can ignore this, it defines the navigation structure for the documentation sidebar.
 import type { NavigationItem } from "@/components/DocumentationSidebar";
@@ -7,6 +7,7 @@ import type { NavigationItem } from "@/components/DocumentationSidebar";
 const navigationFiles: NavigationItem[] = [
 	{ label: "Introduction", path: "/docs/hello-jupyter.md", icon: <MenuBook /> },
 	{ label: "Log in to BadgerCompute", path: "/docs/login.md", icon: <Login /> },
+	{ label: "Demo: Visualize data with Python", path: "/docs/demo-python-plot.md", icon: <Timeline /> },
 	{ label: "Frequently Asked Questions", path: "/docs/faqs.md", icon: <Help /> },
 	{ label: "Get Help", path: "/docs/get-help.md", icon: <SupportAgent /> }
 ];
