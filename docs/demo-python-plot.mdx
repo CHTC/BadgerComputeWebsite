@@ -1,0 +1,84 @@
+import Alert from "@mui/material/Alert"
+import AlertTitle from "@mui/material/AlertTitle"
+import Button from "@mui/material/Button"
+import Link from "@mui/material/Link"
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import {NOTEBOOK_URL} from "../app/config";
+
+import AlertDropDown from "@/components/AlertDropDown";
+
+# Demo: Visualize data with Python
+
+<p align="center"><img src="/docs/demo-python-plot/gdp_oceania.png" alt="A graph of GDP versus time for countries in Oceania." style={{height: 'auto', width: '500px'}} /></p>
+
+This demo shows you how to use BadgerCompute for visualizing data using Python's `matplotlib` and `pandas` packages.
+
+Part of these materials are adapted from the Software Carpentries's [Plotting with Python lesson](https://swcarpentry.github.io/python-novice-gapminder/index.html).
+
+<br />
+
+## Prerequisites
+
+- Access to BadgerCompute
+
+## Launch BadgerCompute and upload materials
+
+1. [Launch BadgerCompute](https://launch.badgercompute.wisc.edu) and sign in using your NetID.
+
+1. Choose the "Basic Data Science" environment. Click "Start".
+
+    <p align="center"><img src="/docs/demo-python-plot/basic-data-science-env.png" alt="The environment selection screen." style={{height: 'auto', width: '700px'}} /></p>
+
+1. In the left-hand sidebar (navigation), double-click the "work" folder to navigate to your `work` directory.
+    
+    <p align="center"><img src="/docs/demo-python-plot/workdir.png" alt="The navigation sidebar in BadgerCompute. The 'work' directory is circled and the 'New Folder' button is highlighted." style={{height: 'auto', width: '500px'}} /></p>
+
+1. Create a new working directory by clicking the "New Folder" button. Name the directory "demo-python-plot". Double-click the newly created directory to navigate into it.
+
+    <p align="center"><img src="/docs/demo-python-plot/demodir.png" alt="The navigation sidebar in BadgerCompute. The current directory is demo-python-plot." style={{height: 'auto', width: '500px'}} /></p>
+
+1. Click the large "+" button (or `CTRL` + `SHIFT` + `L`) to create a New Launcher page from the current directory.
+
+1. At the bottom of the Launcher page, click "Terminal".
+
+    <p align="center"><img src="/docs/demo-python-plot/terminal.png" alt="The terminal button." style={{height: 'auto', width: 'auto'}} /></p>
+
+1. After the terminal launches, paste the command below to copy download the materials for the demo.
+
+    ```
+    wget http://badgercompute.wisc.edu/notebooks/demo-python-plot.ipynb
+    wget https://swcarpentry.github.io/python-novice-gapminder/files/python-novice-gapminder-data.zip
+    unzip python-novice-gapminder-data.zip
+    ```
+    
+    In the navigation sidebar, you should see three new items:
+    1. `data` (directory)
+    1. `python-novice-gapminder.zip`
+    1. `demo-python-plot.ipynb`
+
+    <p align="center"><img src="/docs/demo-python-plot/files.png" alt="Three files in the navigation sidebar." style={{height: 'auto', width: 'auto'}} /></p>
+
+1. In the navigation sidebar, double-click `demo-python-plot.ipynb` to open the notebook. We will be working in this notebook for the rest of the demo.
+
+## 📝 How to use the notebook
+
+Read and follow the the rest of the guide in the notebook.
+<br/>
+
+To execute code in cells (AKA "run cells"), there are multiple options.
+1. Click on the cell, hold `SHIFT` and press the `ENTER` key.
+2. Click the "Play" symbol at the top of the notebook.
+3. Click "Run" in the top menu bar, and select "Run Selected Cell".
+
+<Alert severity="info" sx={{ my: 2 }}>
+To the left of the cell, you'll see brackets (`[ ]`).
+* After running a cell, you may see an asterisk in the brackets (e.g., `[*]`). This means the cell is currently running.
+* After the cell runs, you will see a number in the brackets (e.g., `[1]`). This means the cell has finished running. The number indicates the order in which the cells were run.
+</Alert>
+
+## 🏃‍➡️ Continue exploring
+
+Still want to learn more?
+* Try plotting data from different `.csv` files.
+* Follow along the Software Carpentry's [Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder/index.html) workshop, which includes more examples and exercises.
+* Add interactive sliders, buttons, and more using [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html)!
