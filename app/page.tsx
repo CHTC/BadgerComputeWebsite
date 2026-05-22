@@ -1,5 +1,6 @@
 import { Box, Typography, Button, Container, Card, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import BadgerComputeStatus from "./BadgerComputeStatus";
 
 import CardMedia from "@/components/CardMedia";
 
@@ -174,9 +175,13 @@ export default async function Home() {
 							<source src={`/website/jupyter-video.mp4`} type="video/mp4" />
 							Your browser does not support the video tag.
 						</video>
+            <div>
+            <BadgerComputeStatus />
+            </div>
           </Grid>
         </Grid>
       </Container>
     </Box>
   );
 }
+
