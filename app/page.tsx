@@ -1,6 +1,6 @@
 import { Box, Typography, Button, Container, Card, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import BadgerComputeStatus from "./BadgerComputeStatus";
+import BadgerComputeStatus from "@/components/BadgerComputeStatus";
 
 import CardMedia from "@/components/CardMedia";
 
